@@ -1,0 +1,25 @@
+<h1>{{exportedUsername}} {{exportedStatus}}</h1>
+<div class="content-section implementation">
+  <label for="float-input-first">First Name</label>
+  <span class="p-float-label">
+    <input id="float-input-first" type="text" pInputText [(ngModel)]="newUser.firstName">
+  </span>
+
+  <label for="float-input-last">Last Name</label>
+  <span class="p-float-label">
+    <input id="float-input-last" type="text" pInputText [(ngModel)]="newUser.lastName">
+  </span>
+
+  <label for="float-input-email">Email</label>
+  <span class="p-float-label">
+    <input id="float-input-email" type="text" pInputText [(ngModel)]="newUser.email">
+  </span>
+
+  <label for="float-input-phone">Mobile Number</label>
+  <span class="p-float-label">
+    <p-inputMask id="float-input-phone" mask="(+99)-999-999999?9" [(ngModel)]="newUser.mobileNumber" placeholder="(+99)-999-9999999"></p-inputMask>
+  </span>
+
+
+
+

@@ -1,0 +1,36 @@
+<p-toast></p-toast>
+<div class="app-name">resume Now</div>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+<div class="g-recaptcha" data-sitekey="6LeKAy4cAAAAANv4Q0NyiKy5hWuUmzTa4BjBmtpE"></div>
+<div *ngIf="userForm" class="topMargin form-container">
+  <div [formGroup]="userForm" class="p-fluid">
+    <div class="rowSeparator p-field">
+      <label for="username">{{'login.username' | translate}}</label>
+      <input id="username" [ngClass]="formSubmitted && userForm.controls['username'].invalid ? 'invalid' : 'valid'"
+             formControlName="username" pInputText required>
+      <small class="p-error" *ngIf="formSubmitted && !this.userForm.controls['username'].value">First name is required.</small>
+      <br>
+    </div>
+    <div class="rowSeparator p-field">
+      <label for="password">{{'login.password' | translate}}</label>
+      <input id="password" type="password" formControlName="password" pInputText required>
+      <small class="p-error" *ngIf="formSubmitted && !this.userForm.controls['password'].value">Password is required.</small>
+      <br>
+    </div>
+    <br>
+    <form [formGroup]="aFormGroup">
+      <ngx-recaptcha2 #captchaElem
+                      [siteKey]="siteKey"
+                      formControlName="recaptcha">
+      </ngx-recaptcha2>
+    </form>
+  </div>
+  <div>
+  <br>
+    <div class="login-button">
+      <button pButton (click)="onSubmit()">{{'login.button' | translate}}</button>
+    </div>
+  </div>
+</div>
+<br>
+

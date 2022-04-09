@@ -1,0 +1,13 @@
+<div class="topnav">
+  <a [routerLink]="['/home']" (click)="changeStatuses('home')"
+     [ngClass]="statusHome.value ? 'active' : 'inactive'" >{{'navigation.home' | translate}}</a>
+  <a [routerLink]="['/export']" (click)="changeStatuses('export')"
+     [ngClass]="statusExport.value ? 'active' : 'inactive'" >{{'export.export' | translate}}</a>
+
+
+  <div style="display: inline">
+    <app-logout class="button-right logout"></app-logout>
+<!--    <app-notification-list class="button-right notifications"></app-notification-list>-->
+    <app-change-language class="button-right"></app-change-language>
+  </div>
+</div>

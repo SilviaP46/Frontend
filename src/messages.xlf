@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="1084513962180132353" datatype="html">
+        <source>Create bug</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/bugs/components/bug-list/bug-list.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2211056858826207948" datatype="html">
+        <source> Title <x id="START_TAG_P_SORTICON" ctype="x-p_sorticon" equiv-text="&lt;p-sortIcon pSortableColumn=&quot;title&quot; field=&quot;title&quot;&gt;"/><x id="CLOSE_TAG_P_SORTICON" ctype="x-p_sorticon" equiv-text="&lt;/p-sortIcon&gt;"/><x id="START_TAG_P_COLUMNFILTER" ctype="x-p_columnfilter" equiv-text="&lt;p-columnFilter type=&quot;text&quot; field=&quot;title&quot; display=&quot;menu&quot;&gt;"/><x id="CLOSE_TAG_P_COLUMNFILTER" ctype="x-p_columnfilter" equiv-text="&lt;/p-columnFilter&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/bugs/components/bug-list/bug-list.component.html</context>
+          <context context-type="linenumber">25,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="659988862082399214" datatype="html">
+        <source> Description <x id="START_TAG_P_SORTICON" ctype="x-p_sorticon" equiv-text="&lt;p-sortIcon pSortableColumn=&quot;description&quot; field=&quot;description&quot;&gt;"/><x id="CLOSE_TAG_P_SORTICON" ctype="x-p_sorticon" equiv-text="&lt;/p-sortIcon&gt;"/><x id="START_TAG_P_COLUMNFILTER" ctype="x-p_columnfilter" equiv-text="&lt;p-columnFilter type=&quot;text&quot; field=&quot;description&quot; display=&quot;menu&quot;&gt;"/><x id="CLOSE_TAG_P_COLUMNFILTER" ctype="x-p_columnfilter" equiv-text="&lt;/p-columnFilter&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/bugs/components/bug-list/bug-list.component.html</context>
+          <context context-type="linenumber">32,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6303736868518748606" datatype="html">
+        <source> Version <x id="START_TAG_P_SORTICON" ctype="x-p_sorticon" equiv-text="&lt;p-sortIcon pSortableColumn=&quot;version&quot; field=&quot;version&quot;&gt;"/><x id="CLOSE_TAG_P_SORTICON" ctype="x-p_sorticon" equiv-text="&lt;/p-sortIcon&gt;"/><x id="START_TAG_P_COLUMNFILTER" ctype="x-p_columnfilter" equiv-text="&lt;p-columnFilter type=&quot;text&quot; field=&quot;version&quot; display=&quot;menu&quot;&gt;"/><x id="CLOSE_TAG_P_COLUMNFILTER" ctype="x-p_columnfilter" equiv-text="&lt;/p-columnFilter&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/bugs/components/bug-list/bug-list.component.html</context>
+          <context context-type="linenumber">39,41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4101198851132694322" datatype="html">
+        <source> Fixed Version <x id="START_TAG_P_SORTICON" ctype="x-p_sorticon" equiv-text="&lt;p-sortIcon pSortableColumn=&quot;fixedVersion&quot; field=&quot;fixedVersion&quot;&gt;"/><x id="CLOSE_TAG_P_SORTICON" ctype="x-p_sorticon" equiv-text="&lt;/p-sortIcon&gt;"/><x id="START_TAG_P_COLUMNFILTER" ctype="x-p_columnfilter" equiv-text="&lt;p-columnFilter type=&quot;text&quot; field=&quot;fixedVersion&quot; display=&quot;menu&quot;&gt;"/><x id="CLOSE_TAG_P_COLUMNFILTER" ctype="x-p_columnfilter" equiv-text="&lt;/p-columnFilter&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/bugs/components/bug-list/bug-list.component.html</context>
+          <context context-type="linenumber">46,48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1044910905508745230" datatype="html">
+        <source> Target Date <x id="START_TAG_P_SORTICON" ctype="x-p_sorticon" equiv-text="&lt;p-sortIcon pSortableColumn=&quot;targetDate&quot; field=&quot;targetDate&quot;&gt;"/><x id="CLOSE_TAG_P_SORTICON" ctype="x-p_sorticon" equiv-text="&lt;/p-sortIcon&gt;"/><x id="START_TAG_P_COLUMNFILTER" ctype="x-p_columnfilter" equiv-text="&lt;p-columnFilter type=&quot;date&quot; field=&quot;targetDate&quot; display=&quot;menu&quot;&gt;"/><x id="CLOSE_TAG_P_COLUMNFILTER" ctype="x-p_columnfilter" equiv-text="&lt;/p-columnFilter&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/bugs/components/bug-list/bug-list.component.html</context>
+          <context context-type="linenumber">53,55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4211562870666952135" datatype="html">
+        <source> Severity <x id="START_TAG_P_COLUMNFILTER" ctype="x-p_columnfilter" equiv-text="&lt;p-columnFilter field=&quot;severity&quot; matchMode=&quot;equals&quot; [showMenu]=&quot;false&quot;&gt;"/><x id="START_TAG_NG_TEMPLATE_1" ctype="x-ng_template_1" equiv-text="&lt;ng-template pTemplate=&quot;filter&quot; let-value let-filter=&quot;filterCallback&quot;&gt;"/><x id="START_TAG_P_DROPDOWN" ctype="x-p_dropdown" equiv-text="&lt;p-dropdown [ngModel]=&quot;value&quot; [options]=&quot;severities&quot; (onChange)=&quot;filter($event.value)&quot; placeholder=&quot;Any&quot; [showClear]=&quot;true&quot;&gt;"/><x id="START_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="&lt;ng-template let-option pTemplate=&quot;item&quot;&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span [class]=&quot;&apos;bug-badge status-&apos; + option.value&quot;&gt;"/><x id="INTERPOLATION" equiv-text="{{option.label}}"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="CLOSE_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="&lt;/ng-template&gt;"/><x id="CLOSE_TAG_P_DROPDOWN" ctype="x-p_dropdown" equiv-text="&lt;/p-dropdown&gt;"/><x id="CLOSE_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="&lt;/ng-template&gt;"/><x id="CLOSE_TAG_P_COLUMNFILTER" ctype="x-p_columnfilter" equiv-text="&lt;/p-columnFilter&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/bugs/components/bug-list/bug-list.component.html</context>
+          <context context-type="linenumber">60,69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4815903330881154745" datatype="html">
+        <source> Created by <x id="START_TAG_P_SORTICON" ctype="x-p_sorticon" equiv-text="&lt;p-sortIcon pSortableColumn=&quot;createdBy&quot; field=&quot;createdBy&quot;&gt;"/><x id="CLOSE_TAG_P_SORTICON" ctype="x-p_sorticon" equiv-text="&lt;/p-sortIcon&gt;"/><x id="START_TAG_P_COLUMNFILTER" ctype="x-p_columnfilter" equiv-text="&lt;p-columnFilter type=&quot;text&quot; field=&quot;createdBy&quot; display=&quot;menu&quot;&gt;"/><x id="CLOSE_TAG_P_COLUMNFILTER" ctype="x-p_columnfilter" equiv-text="&lt;/p-columnFilter&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/bugs/components/bug-list/bug-list.component.html</context>
+          <context context-type="linenumber">74,76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7911750779202330798" datatype="html">
+        <source> Assigned to <x id="START_TAG_P_SORTICON" ctype="x-p_sorticon" equiv-text="&lt;p-sortIcon pSortableColumn=&quot;assignedTo&quot; field=&quot;assignedTo&quot;&gt;"/><x id="CLOSE_TAG_P_SORTICON" ctype="x-p_sorticon" equiv-text="&lt;/p-sortIcon&gt;"/><x id="START_TAG_P_COLUMNFILTER" ctype="x-p_columnfilter" equiv-text="&lt;p-columnFilter type=&quot;text&quot; field=&quot;assignedTo&quot; display=&quot;menu&quot;&gt;"/><x id="CLOSE_TAG_P_COLUMNFILTER" ctype="x-p_columnfilter" equiv-text="&lt;/p-columnFilter&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/bugs/components/bug-list/bug-list.component.html</context>
+          <context context-type="linenumber">81,83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5711317767808710334" datatype="html">
+        <source> Status <x id="START_TAG_P_COLUMNFILTER" ctype="x-p_columnfilter" equiv-text="&lt;p-columnFilter field=&quot;status&quot; matchMode=&quot;equals&quot; [showMenu]=&quot;false&quot;&gt;"/><x id="START_TAG_NG_TEMPLATE_1" ctype="x-ng_template_1" equiv-text="&lt;ng-template pTemplate=&quot;filter&quot; let-value let-filter=&quot;filterCallback&quot;&gt;"/><x id="START_TAG_P_DROPDOWN" ctype="x-p_dropdown" equiv-text="&lt;p-dropdown [ngModel]=&quot;value&quot; [options]=&quot;statuses&quot; (onChange)=&quot;filter($event.value)&quot; placeholder=&quot;Any&quot; [showClear]=&quot;true&quot;&gt;"/><x id="START_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="&lt;ng-template let-option pTemplate=&quot;item&quot;&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span [class]=&quot;&apos;bug-badge status-&apos; + option.value&quot;&gt;"/><x id="INTERPOLATION" equiv-text="{{option.label}}"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="CLOSE_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="&lt;/ng-template&gt;"/><x id="CLOSE_TAG_P_DROPDOWN" ctype="x-p_dropdown" equiv-text="&lt;/p-dropdown&gt;"/><x id="CLOSE_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="&lt;/ng-template&gt;"/><x id="CLOSE_TAG_P_COLUMNFILTER" ctype="x-p_columnfilter" equiv-text="&lt;/p-columnFilter&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/bugs/components/bug-list/bug-list.component.html</context>
+          <context context-type="linenumber">88,97</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5701618810648052610" datatype="html">
+        <source>Title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/bugs/components/bug/bug.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9042595016050134966" datatype="html">
+        <source>Fixed Version</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/bugs/components/bug/bug.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4902817035128594900" datatype="html">
+        <source>Description</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/bugs/components/bug/bug.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5988258181368261927" datatype="html">
+        <source>Target Date</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/bugs/components/bug/bug.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6491474782694268231" datatype="html">
+        <source>Severity</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/bugs/components/bug/bug.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1060559829413256778" datatype="html">
+        <source>Assign to</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/bugs/components/bug/bug.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5611592591303869712" datatype="html">
+        <source>Status</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/bugs/components/bug/bug.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7874641980921552433" datatype="html">
+        <source>Welcome <x id="INTERPOLATION" equiv-text="{{getUsername()}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/home/components/home-page/home-page.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1479060843493459021" datatype="html">
+        <source>Username: <x id="TAG_INPUT" ctype="x-input" equiv-text="&lt;input
+      [ngClass]=&quot;formSubmitted &amp;&amp; userForm.controls.username.invalid ? &apos;invalid&apos; : &apos;valid&apos;&quot;
+      formControlName=&quot;username&quot;&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/login/components/login/login.component.html</context>
+          <context context-type="linenumber">5,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3855952753267532162" datatype="html">
+        <source>Password: <x id="TAG_INPUT" ctype="x-input" equiv-text="&lt;input type=&quot;password&quot; formControlName=&quot;password&quot;&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/login/components/login/login.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2454050363478003966" datatype="html">
+        <source>Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/login/components/login/login.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2821179408673282599" datatype="html">
+        <source>Home</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/navigation/components/navigation/navigation.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4555457172864212828" datatype="html">
+        <source>Users</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/navigation/components/navigation/navigation.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2550270964969027268" datatype="html">
+        <source>Bugs</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/navigation/components/navigation/navigation.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="795890916060309463" datatype="html">
+        <source>Roles</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/navigation/components/navigation/navigation.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

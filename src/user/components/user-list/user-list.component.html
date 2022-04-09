@@ -1,0 +1,169 @@
+<p-toast></p-toast>
+<!--<div class="users-table">
+  <p-table #dt [value]="users" dataKey="id" [scrollable]="true" scrollHeight="400px"
+           [rows]="25" [showCurrentPageReport]="true" [loading]="loading" styleClass="p-datatable-users p-datatable-sm"
+           [paginator]="true" [rowHover]="true"
+           [globalFilterFields]="['username']">
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex p-jc-between">
+        <button pButton label="{{'clear' | translate}}" class="p-button-outlined clear-button" icon="pi pi-filter-slash"
+                (click)="clear(dt)"></button>
+        <span class="p-input-icon-left p-ml-auto">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')"
+                           placeholder="{{'search' | translate}}"/>
+                </span>
+        <button pButton pRipple label="{{'users.add' | translate}}" icon="pi pi-plus" class="p-mr-2 open-new-button"
+                (click)="openNew()"></button>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 7rem">
+          <div class="p-d-flex p-jc-between p-ai-center">
+            {{'users.username' | translate}}
+            <br>
+            <p-sortIcon pSortableColumn="username" field="username"></p-sortIcon>
+            <p-columnFilter type="text" field="username" display="menu"></p-columnFilter>
+          </div>
+        </th>
+        <th style="width: 12rem">
+          <div class="p-d-flex p-jc-between p-ai-center">
+            {{'users.first_name' | translate}}
+            <br>
+            <p-sortIcon pSortableColumn="firstName" field="username"></p-sortIcon>
+            <p-columnFilter type="text" field="firstName" display="menu"></p-columnFilter>
+          </div>
+        </th>
+        <th style="width: 10rem">
+          <div class="p-d-flex p-jc-between p-ai-center">
+            {{'users.last_name' | translate}}
+            <br>
+            <p-sortIcon pSortableColumn="lastName" field="username"></p-sortIcon>
+            <p-columnFilter type="text" field="lastName" display="menu"></p-columnFilter>
+          </div>
+        </th>
+        <th style="width: 10rem">
+          <div class="p-d-flex p-jc-between p-ai-center">
+            {{'users.mobile_number' | translate}}
+            <br>
+            <p-sortIcon pSortableColumn="mobileNumber" field="username"></p-sortIcon>
+            <p-columnFilter type="text" field="mobileNumber" display="menu"></p-columnFilter>
+          </div>
+        </th>
+        <th style="width: 20rem">
+          <div class="p-d-flex p-jc-between p-ai-center">
+            {{'users.email' | translate}}
+            <br>
+            <p-sortIcon pSortableColumn="email" field="username"></p-sortIcon>
+            <p-columnFilter type="text" field="email" display="menu"></p-columnFilter>
+          </div>
+        </th>
+        <th style="width: 8rem">
+          <div class="p-d-flex p-jc-between p-ai-center">
+            {{'users.status' | translate}}
+            <p-columnFilter field="status" matchMode="equals" [showMenu]="false">
+              <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                <p-dropdown appendTo="body" [ngModel]="value" [options]="statuses" (onChange)="filter($event.value)"
+                            placeholder="{{'any' | translate}}" [showClear]="true">
+                  <ng-template let-option pTemplate="item">
+                    <span [class]="'user-badge status-' + option.value">{{option.label}}</span>
+                  </ng-template>
+                </p-dropdown>
+              </ng-template>
+            </p-columnFilter>
+          </div>
+        </th>
+        <th style="width: 4rem"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+      <tr>
+        <td style="width: 7rem">
+          {{user.username}}
+        </td>
+        <td style="width: 12rem">
+          {{user.firstName}}
+        </td>
+        <td style="width: 10rem">
+          {{user.lastName}}
+        </td>
+        <td style="width: 10rem">
+          {{user.mobileNumber}}
+        </td>
+        <td style="width: 20rem">
+          {{user.email}}
+        </td>
+        <td style="width: 8rem" [class]="'user-badge status-' + user.status">
+          <div class="switch">
+            <p-inputSwitch [ngModel]="user.status==='ACTIVE'"
+                           (click)="chooseState(user)"></p-inputSwitch>
+          </div>
+        </td>
+        <td style="width: 4rem">
+          <button pButton pRipple icon="pi pi-pencil" class="p-mr-2" (click)="redirectToEdit(user)"></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="6">{{'users.not_found' | translate}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-scrollTop></p-scrollTop>
+</div>
+
+<p-dialog [(visible)]="userDialog" [style]="{width: '500px'}" header="{{'users.details' | translate}}" [modal]="true"
+          styleClass="p-fluid" [closable]="false">
+  <ng-template pTemplate="content">
+    <div class="p-field">
+      <label for="roles">{{'users.roles' | translate}}</label>
+      <p-multiSelect [(ngModel)]="user.roles" inputId="roles" id="roles" [options]="roles" optionLabel="type"
+                     placeholder="{{'roles.select' | translate}}">
+      </p-multiSelect>
+    </div>
+    <div class="p-field">
+      <label for="first-name">{{'users.first_name' | translate}}</label>
+      <input type="text" maxlength="200" pInputText id="first-name" [(ngModel)]="user.firstName" required autofocus />
+      <small class="p-error" *ngIf="submitted && !user.firstName">{{'users.required_first_name' | translate}}</small>
+    </div>
+    <div class="p-field">
+      <label for="last-name">{{'users.last_name' | translate}}</label>
+      <input id="last-name" maxlength="200" pInputText [(ngModel)]="user.lastName" required/>
+      <small class="p-error" *ngIf="submitted && !user.lastName">{{'users.required_last_name' | translate}}</small>
+    </div>
+    <div class="p-field">
+      <label for="email">{{'users.email' | translate}}</label>
+      <input id="email" maxlength="200" pInputText [(ngModel)]="user.email" required/>
+      <small class="p-error" *ngIf="submitted && !user.email">{{'users.required_email' | translate}}</small>
+    </div>
+    <div class="p-field">
+      <label for="mobile-number">{{'users.mobile_number' | translate}}</label>
+      <p-inputMask id="mobile-number" mask="(+99)-999-999999?9" [(ngModel)]="user.mobileNumber" placeholder="(+99)-999-9999999" [required]="true" [autoClear]="false"></p-inputMask>
+      <small class="p-error" *ngIf="submitted && !user.mobileNumber">{{'users.required_mobile_number' | translate}}</small>
+    </div>
+    &lt;!&ndash;    <div class="p-field" *ngIf="editing">&ndash;&gt;
+    &lt;!&ndash;      <label for="active">{{'users.active' | translate}}</label>&ndash;&gt;
+    &lt;!&ndash;      <div class="switch">&ndash;&gt;
+    &lt;!&ndash;        <p-inputSwitch id="active" [(ngModel)]="active" (click)="chooseState()" ></p-inputSwitch>&ndash;&gt;
+    &lt;!&ndash;      </div>&ndash;&gt;
+    &lt;!&ndash;    </div>&ndash;&gt;
+  </ng-template>
+  &lt;!&ndash;  <div *ngIf="exportedStatus==='ACTIVE' && exportedTypeButton==='update';else other_content">&ndash;&gt;
+  &lt;!&ndash;    <p-inputSwitch [(ngModel)]="active" (click)="chooseState()" ></p-inputSwitch></div>&ndash;&gt;
+  &lt;!&ndash;  <ng-template #other_content>&ndash;&gt;
+  &lt;!&ndash;    <p-inputSwitch *ngIf="exportedTypeButton==='update'" (click)="chooseState()"></p-inputSwitch>&ndash;&gt;
+  &lt;!&ndash;  </ng-template>&ndash;&gt;
+
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-text"
+            (click)="hideDialog()"></button>
+    <button pButton pRipple label="{{'save' | translate}}" icon="pi pi-check" class="p-button-text"
+            (click)="saveUser()"></button>
+  </ng-template>
+</p-dialog>-->
+
+
+<router-outlet></router-outlet>
+

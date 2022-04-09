@@ -1,0 +1,74 @@
+{
+  "cancel": "Anulează",
+  "save": "Salvează",
+  "statistics": "Statistici",
+  "any": "Orice",
+  "search": "Caută cuvânt cheie",
+  "message": "Mesaj",
+  "clear": "Șterge",
+  "login": {
+    "username": "Nume utilizator",
+    "password": "Parola",
+    "button": "Autentificare"
+  },
+  "navigation": {
+    "users": "Utilizatori",
+    "bugs": "Bugs",
+    "home": "Acasă",
+    "roles": "Roluri"
+  },
+  "home": {
+    "welcome": "Bine ai venit,"
+  },
+  "translate": {
+    "languages": "Limbi"
+  },
+  "export": {
+    "export": "Creează-ți CV-ul"
+  },
+
+  "users": {
+    "list": "Listă de utilizatori",
+    "username": "Username",
+    "first_name": "Prenume",
+    "last_name": "Nume",
+    "mobile_number": "Telefon",
+    "email": "Adresă de email",
+    "active": "Activ",
+    "not_found": "Niciun utilizator găsit.",
+    "roles": "Roluri",
+    "status": "Status",
+    "notification": "Notificare",
+    "add": "Adaugă",
+    "details": "Detalii utilizator",
+    "header_notif": "Utilizator modificat",
+    "required_first_name": "Prenumele este necesar.",
+    "required_last_name": "Numele este necesar.",
+    "required_email": "Email-ul este necesar.",
+    "required_mobile_number": "Numărul de telefon este necesar.",
+    "select": "Alege utilizator"
+  },
+  "errors": {
+
+    "code0" : "Exceptie neasteptata",
+    "code1" : "Utilizatorul sau parola gresita!",
+    "code2" : "Validarea campului nu a reusit!",
+    "code3" : "Utilizatorul nu a fost gasit!",
+    "code4" : "Entitatea nu a fost gasita!",
+    "code5" : "Mailul nu a putut fi trimis!",
+    "code6" : "Constrangere a bazei de date incalcata!",
+    "code7" : "Tranzitie a starii bugului invalida!",
+    "code8" : "Fisierul este prea mare!",
+    "code9" : "Entitatea a fost nula!",
+    "code10" : "Nu aveti permisunea necesara!",
+    "code11" : "Utilizatorul are buguri deschise si nu poate fi inchis!",
+    "code12" : "Tranzactia nu a putut fi completata!",
+    "code13" : "Utilizatorul asignat nu poate fi nul!",
+    "code14" : "Utilizatorul este inactiv!"
+
+  },
+  "notification":{
+    "link": "Editați",
+    "viewHistory": "Vezi istoricul"
+  }
+}

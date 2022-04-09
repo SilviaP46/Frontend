@@ -1,0 +1,43 @@
+.users-table {
+  margin: 30px;
+}
+
+.create-user-label {
+  padding: 5px;
+}
+
+.table-caption {
+  height: 100px;
+  font-size: 19px;
+  font-weight: bold;
+  display: inline;
+  padding-left: 10px;
+  margin-top: 25px;
+}
+
+.table-header {
+  height: 50px;
+  font-size: 20px;
+}
+
+.create-user-button {
+  float: right;
+}
+
+.caption {
+  margin: 20px 0;
+  height: auto;
+}
+
+.toolbar {
+  height: 10px;
+}
+
+.open-new-button {
+  float: right;
+  margin-right: 10px;
+}
+
+.clear-button {
+  margin-right: 5px;
+}
