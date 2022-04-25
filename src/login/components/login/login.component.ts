@@ -3,8 +3,6 @@ import {User} from "../../models/User";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {LoginService} from "../../services/login.service";
 import {Router} from "@angular/router";
-import {Role} from "../../models/Role";
-import {Permission} from "../../models/Permission";
 import {MessageService} from "primeng/api";
 declare var grecaptcha: any;
 
