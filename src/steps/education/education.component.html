@@ -1,0 +1,107 @@
+<div class="stepsdemo-content centerForm">
+  <p-card class="personalBar">
+    <form #resumeForm="ngForm">
+      <div class="shadow-sm card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between card-title">
+            <h4 class="d-flex align-items-center">
+              <i class="material-icons">
+                school
+              </i>
+              Education</h4>
+            <p-button class="btn btn-primary" (click)="addEducation()">+</p-button>
+          </div>
+          <div class="row" *ngFor="let ed of resume.educations; let i=index">
+            <div class="col-md-3">
+              <div class="form-group spacing">
+                <select class="form-control" placeholder="Degree" name="degree{{i}}" [(ngModel)]="ed.degree"
+                        #Degree="ngModel" required
+                        [ngClass]="{'is-invalid': Degree.invalid && (Degree.touched || resumeForm.submitted) }">
+                  <option [value]="d" *ngFor="let d of degrees">{{d}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group spacing">
+                <input type="text" pInputText class="form-control" name="college{{i}}" [(ngModel)]="ed.college"
+                       placeholder="School/College" #College="ngModel" required
+                       [ngClass]="{'is-invalid': College.invalid && (College.touched || resumeForm.submitted) }">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group spacing">
+                <input type="number" pInputText class="form-control" name="passingYear{{i}}"
+                       [(ngModel)]="ed.passingYear"
+                       placeholder="Passing Year" #PassingYear="ngModel" required
+                       [ngClass]="{'is-invalid': PassingYear.invalid && (PassingYear.touched || resumeForm.submitted) }">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group spacing">
+                <input type="number" pInputText class="form-control" name="result{{i}}" [(ngModel)]="ed.percentage"
+                       placeholder="Percentage" #Percentage="ngModel" required
+                       [ngClass]="{'is-invalid': Percentage.invalid && (Percentage.touched || resumeForm.submitted) }">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other Details -->
+
+      <div class="shadow-sm card">
+        <div class="card-body">
+          <h4 class="card-title d-flex align-items-center">
+            <i class="material-icons"> list </i>Other Details</h4>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                  <textarea type="text" class="form-control" [(ngModel)]="resume.otherDetails" name="otherDetails"
+                            rows="4" pInputTextarea></textarea>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-4">
+        <div class="shadow-sm card action-buttons">
+          <p-button (click)="resumeForm.valid ? generatePdf('open') : ''"
+                    class="btn btn-primary d-flex align-items-center justify-content-center row">
+            <i class="material-icons">
+              picture_as_pdf
+            </i> <span>Open PDF</span></p-button>
+          <p-button (click)="resumeForm.valid ? generatePdf('download') : ''"
+                    class="btn btn-primary d-flex align-items-center justify-content-center row">
+            <i class="material-icons">
+              cloud_download
+            </i><span>Download PDF</span></p-button>
+          <p-button (click)="resumeForm.valid ? generatePdf('print') : ''"
+                    class="btn btn-primary d-flex align-items-center justify-content-center row">
+            <i class="material-icons">
+              print
+            </i><span>Print PDF</span></p-button>
+
+          <p-button type='reset' (click)="resetForm()"
+                    class="btn btn-primary d-flex align-items-center justify-content-center row">
+            <i class="material-icons">
+              clear
+            </i><span>Reset</span></p-button>
+        </div>
+
+        <div class="card p-4">
+          <div class="form-group">
+            <label class="h4 mb-3" for="">Show your picture in Resume: </label>
+            <input type="file" pInputText class="form-control-file" (change)="fileChanged($event)"
+                   aria-describedby="fileHelpId">
+          </div>
+          <img *ngIf="resume.profilePic" [src]="resume.profilePic" class="img-thumbnail">
+        </div>
+      </div>
+    </form>
+  </p-card>
+</div>
+
+

@@ -1,0 +1,66 @@
+<div class="stepsdemo-content centerForm">
+  <p-card class="personalBar">
+    <ng-template pTemplate="title">
+      Personal Information
+    </ng-template>
+    <ng-template pTemplate="subtitle">
+      Enter your personal information
+    </ng-template>
+
+    <form #resumeForm="ngForm">
+
+      <div class="card-body">
+        <h4 class="card-title d-flex align-items-center">
+          <i class="material-icons">
+            account_circle
+          </i>
+          Personal Details</h4>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group spacing">
+              <input type="text" pInputText class="form-control" [(ngModel)]="resume.name" name="name"
+                     placeholder="Name"
+                     #Name="ngModel" required
+                     [ngClass]="{'is-invalid': Name.invalid && (Name.touched || resumeForm.submitted) }"/><br>
+            </div>
+            <div class="form-group spacing">
+                <span class="p-float-label">
+                    <textarea class="form-control" [(ngModel)]="resume.address" name="Short personal statement" rows="5"
+                              cols="45"
+                              #Address="ngModel" required
+                              [ngClass]="{'is-invalid': Address.invalid && (Address.touched || resumeForm.submitted) }"
+                              pInputTextarea></textarea>
+                    <label>Short personal statement</label>
+                </span>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group spacing">
+              <input type="text" pInputText class="form-control" [(ngModel)]="resume.contactNo" name="contactNo"
+                     placeholder="Contact No." #ContactNo="ngModel" required
+                     [ngClass]="{'is-invalid': ContactNo.invalid && (ContactNo.touched || resumeForm.submitted) }">
+            </div>
+            <div class="form-group spacing">
+              <input type="text" pInputText class="form-control" [(ngModel)]="resume.email" name="emailId"
+                     placeholder="Email" #Email="ngModel" required
+                     [ngClass]="{'is-invalid': Email.invalid && (Email.touched || resumeForm.submitted) }">
+            </div>
+            <div class="form-group spacing">
+              <input type="text" pInputText class="form-control" [(ngModel)]="resume.socialProfile" name="socialProfile"
+                     placeholder="Social Profile ">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+
+
+    <ng-template pTemplate="footer">
+      <div class="grid grid-nogutter justify-content-end">
+        <p-button label="Next" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right"></p-button>
+      </div>
+    </ng-template>
+  </p-card>
+</div>

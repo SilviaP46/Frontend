@@ -1,0 +1,32 @@
+<div class="stepsdemo-content centerForm">
+  <p-card class="personalBar">
+<div class="shadow-sm card">
+  <div class="card-body">
+    <div class="d-flex justify-content-between card-title">
+      <h4 class="d-flex align-items-center">
+        <i class="material-icons">
+          timeline
+        </i>
+        Skills</h4>
+      <p-button class="btn btn-primary" (click)="addSkill()">+</p-button>
+    </div>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let s of resume.skills; let i=index">
+        <div class="form-group spacing">
+          <input type="text" pInputText class="form-control" name="skill{{i}}" [(ngModel)]="s.value"
+                 placeholder="e.g. Java / Angular / .Net " #Skill="ngModel" required [ngClass]="{'is-invalid': Skill.invalid && (Skill.touched) }">
+                 <!--[ngClass]="{'is-invalid': Skill.invalid && (Skill.touched || resumeForm.submitted) }">-->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <ng-template pTemplate="footer">
+      <div class="grid grid-nogutter justify-content-end">
+        <p-button label="Next" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right"></p-button>
+      </div>
+    </ng-template>
+  </p-card>
+</div>

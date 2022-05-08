@@ -1,0 +1,54 @@
+<div class="stepsdemo-content centerForm">
+  <p-card class="personalBar">
+    <form #resumeForm="ngForm">
+    <div class="shadow-sm card">
+      <div class="card-body">
+        <div class="d-flex justify-content-between card-title">
+          <h4 class="d-flex align-items-center">
+            <i class="material-icons">
+              timeline
+            </i>
+            Experience</h4>
+          <p-button class="btn btn-primary" (click)="addExperience()">+</p-button>
+        </div>
+        <div class="row" *ngFor="let ex of resume.experiences; let i=index">
+          <div class="col-md-6">
+            <div class="form-group spacing">
+              <input type="text" pInputText class="form-control" name="employer{{i}}" [(ngModel)]="ex.employer"
+                     placeholder="Employer" #Employer="ngModel" required
+                     [ngClass]="{'is-invalid': Employer.invalid && (Employer.touched) }">
+            </div>
+            <div class="form-group">
+              <div class="form-group spacing">
+                    <textarea class="form-control" name="jobDescription{{i}}" [(ngModel)]="ex.jobDescription" rows="3"
+                              placeholder="Job Description" pInputTextarea></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group spacing">
+              <input type="text" pInputText class="form-control" name="jobTitle{{i}}" [(ngModel)]="ex.jobTitle"
+                     placeholder="Job Title" #JobTitle="ngModel" required
+                     [ngClass]="{'is-invalid': JobTitle.invalid && (JobTitle.touched) }">
+            </div>
+            <div class="form-group spacing">
+              <input type="number" pInputText class="form-control" name="exInMonths{{i}}" [(ngModel)]="ex.experience"
+                     placeholder="Experience in months" #Experience="ngModel" required
+                     [ngClass]="{'is-invalid': Experience.invalid && (Experience.touched) }">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </form>
+
+    <ng-template pTemplate="footer">
+      <div class="grid grid-nogutter justify-content-end">
+        <p-button label="Next" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right"></p-button>
+      </div>
+    </ng-template>
+
+
+  </p-card>
+</div>
