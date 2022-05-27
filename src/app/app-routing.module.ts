@@ -1,12 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AppComponent} from "./app.component";
 
 import {LoginComponent} from "../login/components/login/login.component";
 import {HomeGuard} from "../navigation/components/guards/HomeGuard";
 import {UserGuard} from "../navigation/components/guards/UserGuard";
 import {LoginGuard} from "../navigation/components/guards/LoginGuard";
+import {RegisterGuard} from "../navigation/components/guards/RegisterGuard";
 import {ExportGuard} from "../navigation/components/guards/ExportGuard";
+import {PersonalComponent} from "../steps/personal/personal.component";
+import {SkillsComponent} from "../steps/skills/skills.component";
+import {StepsComponent} from "../steps/steps.component";
+import {ExperienceComponent} from "../steps/experience/experience.component";
+import {EducationComponent} from "../steps/education/education.component";
+import {RegisterComponent} from "../register/components/register.component";
+import {IntroductionComponent} from "../steps/introduction/introduction.component";
+import {GenerateComponent} from "../steps/generate/generate.component";
 
 
 
@@ -16,21 +24,18 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('../home/home.module').then(m => m.HomeModule),
     canActivate: [HomeGuard]
-    //loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
   {
     path: 'home',
     pathMatch:'full',
     loadChildren: () => import('../home/home.module').then(m => m.HomeModule),
     canActivate: [HomeGuard]
-    //loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
 
   {
     path: 'export',
     loadChildren: () => import('../export/export.module').then(m => m.ExportModule),
     canActivate: [ExportGuard]
-    //loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
   {
     path: 'users',
@@ -42,10 +47,30 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     canActivate: [LoginGuard]
-    //loadChildren: () => import('./bugs/bugs.module').then(m => m.BugsModule)
-  }/*,
 
-  {path:'**', component: Error404Component}*/
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    canActivate: [RegisterGuard]
+
+  },
+  {
+    path: 'steps',
+    component: StepsComponent,
+
+    children:[
+      {path: '', redirectTo: 'introduction', pathMatch: 'full'},
+      { path: 'introduction', component: IntroductionComponent},
+      { path: 'personal', component: PersonalComponent },
+      { path: 'skills', component: SkillsComponent},
+      { path: 'experience', component: ExperienceComponent},
+      { path: 'education', component: EducationComponent},
+      { path: 'generate', component: GenerateComponent}
+    ]
+  }
+
+  /*{path:'**', component: Error404Component}*/
 ];
 
 @NgModule({

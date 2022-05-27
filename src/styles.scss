@@ -1,7 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~primeicons/primeicons.css';
-@import "~primeng/resources/themes/bootstrap4-light-purple/theme.css";
+@import "~primeng/resources/themes/saga-purple/theme.css";
 @import '~primeng/resources/primeng.min.css';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.centerForm{
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.personalBar{
+  padding: 40px;
+  width: 800px;
+  height: 150px;
+}
+
+.spacing{
+  padding-top: 10px;
+}
+
+.spacing-all{
+  padding: 10px;
+}
+
+.spacing-left{
+  padding-left: 15px;
+}
+
+.floatRight{
+  float:right;
+}
+
+.centerCheckBox{
+  margin: auto;
+  padding: 10px;
+}

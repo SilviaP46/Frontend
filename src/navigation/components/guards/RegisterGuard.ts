@@ -3,7 +3,7 @@ import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTre
 import {Observable} from "rxjs";
 
 @Injectable()
-export class ResumeGuard implements CanActivate {
+export class RegisterGuard implements CanActivate {
   constructor(private router: Router) {
   }
 
@@ -12,8 +12,8 @@ export class ResumeGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    if(sessionStorage.getItem('username')===null)
-      return this.router.navigate(['login']);
+    if(sessionStorage.getItem('username')!==null)
+      return this.router.navigate(['home']);
     return true;
   }
 }

@@ -1,4 +1,5 @@
 export class Resume {
+  position:string="";
   profilePic: string="";
   name: string="";
   address: string="";
@@ -8,12 +9,14 @@ export class Resume {
   experiences: Experience[] = [];
   educations: Education[] = [];
   otherDetails: string="";
-  skills: Skill[] = [];
+  skillsS: SoftSkill[] = [];
+  skillsH: HardSkill[] = [];
 
   constructor() {
     this.experiences.push(new Experience());
     this.educations.push(new Education());
-    this.skills.push(new Skill());
+    this.skillsS.push(new SoftSkill());
+    this.skillsH.push(new HardSkill());
   }
 }
 
@@ -21,17 +24,24 @@ export class Experience {
   employer: string="";
   jobTitle: string="";
   jobDescription: string="";
-  startDate: string="";
-  experience: number;
+  startDate: string | null;
+  endDate: string | null;
+  current:boolean=false;
 }
 
 export class Education {
   degree: string="";
   college: string="";
-  passingYear: string="";
-  percentage: number;
+  startDate: string | null="";
+  endDate: string | null="";
+  city: string="";
+  current:boolean=false
 }
 
-export class Skill {
+export class SoftSkill {
+  value: string="";
+}
+
+export class HardSkill {
   value: string="";
 }

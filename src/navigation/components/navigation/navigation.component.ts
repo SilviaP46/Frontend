@@ -13,6 +13,7 @@ export class NavigationComponent implements OnInit {
   statusHome: any;
   statusUsers: any;
   statusExport:any;
+  statusSteps:any;
 
 
   showUsers: boolean = false;
@@ -28,8 +29,11 @@ export class NavigationComponent implements OnInit {
     this.statusExport = {
       label: "export", value: false
     }
+    this.statusSteps = {
+      label: "steps", value: false
+    }
 
-    this.statuses = [this.statusHome, this.statusUsers, this.statusExport];
+    this.statuses = [this.statusHome, this.statusUsers, this.statusExport, this.statusSteps];
   }
 
   ngOnInit(): void {

@@ -8,6 +8,8 @@ import {FormsModule} from "@angular/forms";
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from "primeng/inputtextarea";
+import {ButtonModule} from "primeng/button";
+import {CardModule} from "primeng/card";
 
 
 
@@ -15,16 +17,18 @@ import {InputTextareaModule} from "primeng/inputtextarea";
   declarations: [
     ExportComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    ExportRoutingModule,
-    TranslateModule,
-    FormsModule,
-    AutoCompleteModule,
-    InputTextModule,
-    InputTextareaModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule,
+        ExportRoutingModule,
+        TranslateModule,
+        FormsModule,
+        AutoCompleteModule,
+        InputTextModule,
+        InputTextareaModule,
+        ButtonModule,
+        CardModule
+    ],
   exports:[
     ExportComponent
   ]

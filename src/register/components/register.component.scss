@@ -1,0 +1,27 @@
+.form-container{
+  width: 20%;
+  margin: 50px auto;
+}
+
+.rowSeparator{
+  margin-top: 10px;
+  align-content: center;
+}
+
+.invalid{
+  border: 1px solid red;
+}
+
+.app-name {
+  text-align: center;
+  font-size: 40px;
+  margin: 50px;
+}
+
+label {
+  margin-right: 5px;
+}
+
+.login-button {
+  text-align: center;
+}

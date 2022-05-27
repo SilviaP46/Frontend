@@ -1,0 +1,52 @@
+<p-toast></p-toast>
+<div class="app-name">Register</div>
+<div *ngIf="userForm" class="topMargin form-container">
+  <div [formGroup]="userForm" class="p-fluid">
+    <div class="rowSeparator p-field">
+      <label for="firstName">{{'login.firstName' | translate}}</label>
+      <input id="firstName" [ngClass]="formSubmitted && userForm.controls['firstName'].invalid ? 'invalid' : 'valid'"
+             formControlName="firstName" pInputText required>
+      <small class="p-error" *ngIf="formSubmitted && !this.userForm.controls['firstName'].value">First Name is required.</small>
+      <br>
+    </div>
+    <div class="rowSeparator p-field">
+      <label for="lastName">{{'login.lastName' | translate}}</label>
+      <input id="lastName" [ngClass]="formSubmitted && userForm.controls['lastName'].invalid ? 'invalid' : 'valid'"
+             formControlName="lastName" pInputText required>
+      <small class="p-error" *ngIf="formSubmitted && !this.userForm.controls['lastName'].value">Last Name is required.</small>
+      <br>
+    </div>
+    <div class="rowSeparator p-field">
+      <label for="email">{{'login.email' | translate}}</label>
+      <input id="email" [ngClass]="formSubmitted && userForm.controls['email'].invalid ? 'invalid' : 'valid'"
+             formControlName="email" pInputText required>
+      <small class="p-error" *ngIf="formSubmitted && !this.userForm.controls['email'].value">Email is required.</small>
+      <br>
+    </div>
+    <div class="rowSeparator p-field">
+      <label for="username">{{'login.username' | translate}}</label>
+      <input id="username" [ngClass]="formSubmitted && userForm.controls['username'].invalid ? 'invalid' : 'valid'"
+             formControlName="username" pInputText required>
+      <small class="p-error" *ngIf="formSubmitted && !this.userForm.controls['username'].value">Username is required.</small>
+      <br>
+    </div>
+    <div class="rowSeparator p-field">
+      <label for="password">{{'login.password' | translate}}</label>
+      <input id="password" type="password" formControlName="password" pInputText required>
+      <small *ngIf="formSubmitted && !this.userForm.controls['password'].value" class="p-error">Password is required.</small>
+      <br>
+    </div>
+    <br>
+  </div>
+  <div>
+    <br>
+    <div class="login-button">
+      <button pButton (click)="register()">{{'login.buttonRegister' | translate}}</button>
+    </div>
+    <br>
+    <button pButton type="button" label="I have an account. Click to login." class="p-button-text" (click)="handleClick()"></button>
+  </div>
+</div>
+
+
+

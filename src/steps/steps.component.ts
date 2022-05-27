@@ -2,6 +2,7 @@ import {MenuItem, MessageService} from "primeng/api";
 import {Subscription} from "rxjs";
 import {Component, OnInit, ViewEncapsulation} from "@angular/core";
 import {TicketService} from "./ticketservice";
+import {SharingService} from "./sharing-service";
 
 @Component({
   selector: 'app-steps',
@@ -16,10 +17,20 @@ export class StepsComponent implements OnInit {
 
   subscription: Subscription
 
-  constructor(public messageService: MessageService, public ticketService: TicketService) {}
+  readOnly:boolean
+
+  constructor(public messageService: MessageService, public ticketService: TicketService,public sharingService:SharingService) {}
 
   ngOnInit() {
+
+    this.readOnly=true
+    this.sharingService.setReadOnly(this.readOnly);
+
     this.items = [{
+      label: 'Introduction',
+      routerLink: 'introduction'
+    },
+      {
       label: 'Personal',
       routerLink: 'personal'
     },
@@ -34,6 +45,10 @@ export class StepsComponent implements OnInit {
       {
         label: 'Education',
         routerLink: 'education'
+      },
+      {
+        label: 'Generate',
+        routerLink: 'generate'
       }
     ];
 

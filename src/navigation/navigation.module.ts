@@ -9,6 +9,8 @@ import {LoginGuard} from "./components/guards/LoginGuard";
 import {UserGuard} from "./components/guards/UserGuard";
 import {HomeGuard} from "./components/guards/HomeGuard";
 import {ExportGuard} from "./components/guards/ExportGuard";
+import {ResumeGuard} from "./components/guards/ResumeGuard";
+import {RegisterGuard} from "./components/guards/RegisterGuard";
 
 
 @NgModule({
@@ -27,9 +29,11 @@ import {ExportGuard} from "./components/guards/ExportGuard";
   ],
   providers:[
     LoginGuard,
+    RegisterGuard,
     UserGuard,
     HomeGuard,
-    ExportGuard
+    ExportGuard,
+    ResumeGuard
   ]
 })
 export class NavigationModule { }

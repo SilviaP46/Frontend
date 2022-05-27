@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['home']);
     });
   }
-  /*forwardUser(user: User){
-    this.userExporter.emit(user);
-  }*/
+  handleClick() {
+    this.router.navigate(['register']);
+  }
 }

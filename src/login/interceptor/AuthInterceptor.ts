@@ -5,9 +5,8 @@ import {Observable} from "rxjs";
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if(req.url!=='http://localhost:4201/login' &&
-      req.url.substr(0, 'http://localhost:4201/notification/'.length)!=='http://localhost:4201/notification/' &&
-      req.url.substr(0, 'http://localhost:4201/bugs/addAttachment/'.length)!=="http://localhost:4201/bugs/addAttachment/") {
+    if(req.url!=='http://localhost:4201/login' &&req.url!== "http://localhost:4201/register"
+      && req.url.substr(0, 'http://localhost:4201/get/'.length)!=="http://localhost:4201/get/") {
 
       req = req.clone({
         setHeaders: {
@@ -20,7 +19,7 @@ export class AuthInterceptor implements HttpInterceptor {
         },
       });
     }
-    if( req.url.substr(0, 'http://localhost:4201/bugs/addAttachment/'.length)==="http://localhost:4201/bugs/addAttachment/"){
+   /* if( req.url.substr(0, 'http://localhost:4201/bugs/addAttachment/'.length)==="http://localhost:4201/bugs/addAttachment/"){
       req = req.clone({
         setHeaders: {
           'enctype': "multipart/form-data",
@@ -31,7 +30,7 @@ export class AuthInterceptor implements HttpInterceptor {
           'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, content-type'
         },
       });
-    }
+    }*/
     return next.handle(req);
   }
 }

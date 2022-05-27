@@ -1,7 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {LoginService} from "../../services/login.service";
-import {Role} from "../../models/Role";
-import {Permission} from "../../models/Permission";
 
 @Component({
   selector: 'app-refresher',
@@ -11,7 +9,7 @@ import {Permission} from "../../models/Permission";
 export class RefresherComponent implements OnInit {
 
   constructor(private loginService: LoginService) {
-    let intervalId = setInterval(this.refresh, 5000, loginService);
+    //let intervalId = setInterval(this.refresh, 5000, loginService);
 
   }
 

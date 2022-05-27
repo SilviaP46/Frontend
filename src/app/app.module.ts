@@ -23,7 +23,13 @@ import {HttpErrorInterceptor} from "../error/http-error.interceptor";
 import {MessageModule} from "primeng/message";
 import {MessagesModule} from "primeng/messages";
 import {ErrorModule} from "../error/error.module";
-import { ExportComponent } from '../export/components/export.component';
+import {TicketService} from "../steps/ticketservice";
+import {InputTextModule} from "primeng/inputtext";
+import {InputTextareaModule} from "primeng/inputtextarea";
+import {SharingService} from "../steps/sharing-service";
+import {RegisterModule} from "../register/register.module";
+import {DatePipe} from "@angular/common";
+import {StepsModule} from "primeng/steps";
 
 
 
@@ -32,29 +38,31 @@ import { ExportComponent } from '../export/components/export.component';
     AppComponent
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    OverlayPanelModule,
-    TableModule,
-    ButtonModule,
-    ToastModule,
-    HttpClientModule,
-    BackendModule,
-    BrowserAnimationsModule,
-    LoginModule,
-    NavigationModule,
-    MessageModule,
-    MessagesModule,
-    FormsModule, ReactiveFormsModule, NgxCaptchaModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }), ErrorModule
-  ],
+    imports: [
+        StepsModule,
+        BrowserModule,
+        AppRoutingModule,
+        OverlayPanelModule,
+        TableModule,
+        ButtonModule,
+        ToastModule,
+        HttpClientModule,
+        BackendModule,
+        BrowserAnimationsModule,
+        LoginModule,
+        RegisterModule,
+        NavigationModule,
+        MessageModule,
+        MessagesModule,
+        FormsModule, ReactiveFormsModule, NgxCaptchaModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }), ErrorModule, InputTextModule, InputTextareaModule
+    ],
   providers: [MessageService,{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
@@ -64,7 +72,7 @@ import { ExportComponent } from '../export/components/export.component';
     useClass: HttpErrorInterceptor,
     multi: true
   },
-    BadgeModule
+    BadgeModule,TicketService,SharingService,DatePipe
   ],
   bootstrap: [AppComponent]
 })
