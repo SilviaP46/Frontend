@@ -30,6 +30,7 @@ import {SharingService} from "../steps/sharing-service";
 import {RegisterModule} from "../register/register.module";
 import {DatePipe} from "@angular/common";
 import {StepsModule} from "primeng/steps";
+import {StepsDemoModule} from "../steps/steps.module";
 
 
 
@@ -39,7 +40,7 @@ import {StepsModule} from "primeng/steps";
 
   ],
     imports: [
-        StepsModule,
+        //StepsDemoModule,
         BrowserModule,
         AppRoutingModule,
         OverlayPanelModule,

@@ -33,10 +33,14 @@ export class StepsComponent implements OnInit {
       {
       label: 'Personal',
       routerLink: 'personal'
-    },
+      },
       {
         label: 'Skills',
         routerLink: 'skills'
+      },
+      {
+        label: 'Languages',
+        routerLink: 'languages'
       },
       {
         label: 'Experience',

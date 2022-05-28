@@ -3,3 +3,21 @@
   padding:50px;
 
 }
+
+.float-parent-element {
+  width: 50%;
+}
+.float-child-element {
+  float: left;
+  width: 50%;
+}
+.centerSkills{
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 50px;
+  align-content: center;
+}
+
+.fixPosition{
+  position: fixed;
+}

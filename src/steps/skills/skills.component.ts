@@ -18,7 +18,6 @@ export class SkillsComponent implements OnInit {
 
   ngOnInit(): void {
     this.resume=JSON.parse(sessionStorage.getItem('resume') || '{}');
-    console.log(this.resume);
 
   }
 
@@ -30,7 +29,7 @@ export class SkillsComponent implements OnInit {
   }
 
   nextPage() {
-    this.router.navigate(['/steps/experience']);
+    this.router.navigate(['/steps/languages']);
     this.submitted = true;
     sessionStorage.setItem('resume',JSON.stringify(this.resume));
 

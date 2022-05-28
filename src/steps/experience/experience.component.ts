@@ -56,7 +56,7 @@ export class ExperienceComponent implements OnInit {
   }
 
   previousPage() {
-    this.router.navigate(['/steps/skills']);
+    this.router.navigate(['/steps/languages']);
     sessionStorage.setItem('resume', JSON.stringify(this.resume));
     this.submitted = true;
   }

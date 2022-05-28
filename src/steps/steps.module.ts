@@ -21,6 +21,9 @@ import {CalendarModule} from "primeng/calendar";
 import {CheckboxModule} from "primeng/checkbox";
 import {TreeSelectModule} from "primeng/treeselect";
 import { GenerateComponent } from './generate/generate.component';
+import {ImageModule} from "primeng/image";
+import { LanguagesComponent } from './languages/languages.component';
+import {DropdownModule} from "primeng/dropdown";
 
 
 @NgModule({
@@ -31,23 +34,26 @@ import { GenerateComponent } from './generate/generate.component';
     EducationComponent,
     ExperienceComponent,
     IntroductionComponent,
-    GenerateComponent
+    GenerateComponent,
+    LanguagesComponent
   ],
     imports: [
 
-      ToastModule,
-      RouterModule,
-      StepsModule,
-      StepsRoutingModule,
-      CardModule,
-      ButtonModule,
-      FormsModule,
-      CommonModule,
-      InputTextModule,
-      InputTextareaModule,
-      CalendarModule,
-      CheckboxModule,
-      TreeSelectModule
+        ToastModule,
+        RouterModule,
+        StepsModule,
+        StepsRoutingModule,
+        CardModule,
+        ButtonModule,
+        FormsModule,
+        CommonModule,
+        InputTextModule,
+        InputTextareaModule,
+        CalendarModule,
+        CheckboxModule,
+        TreeSelectModule,
+        ImageModule,
+        DropdownModule
     ],
   providers:[TicketService,SharingService,DatePipe],
   exports:[
@@ -57,7 +63,8 @@ import { GenerateComponent } from './generate/generate.component';
     EducationComponent,
     ExperienceComponent,
     IntroductionComponent,
-    GenerateComponent
+    GenerateComponent,
+    LanguagesComponent
 
   ]
 })

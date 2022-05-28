@@ -4,22 +4,23 @@
     <div class="shadow-sm card">
       <div class="card-body">
         <div class="d-flex justify-content-between card-title">
-          
+
           <div class="float-child-element centerSkills">
             <div>
-              <h4 class="d-flex align-items-center">
+              <h2 class="d-flex align-items-center">
                 <i class="material-icons">
                   timeline
                 </i>
-                Soft Skills</h4>
-              <p-button class="btn btn-primary" icon="pi pi-plus-circle" (click)="addSoftSkill()"></p-button>
+                Languages</h2>
+              <p-button class="btn btn-primary" icon="pi pi-plus-circle" (click)="addLanguage()"></p-button>
 
               <div class="row">
-                <div class="col-md-4" *ngFor="let s of resume.skillsS; let i=index">
+                <div class="col-md-4" *ngFor="let s of resume.languages; let i=index">
                   <div class="form-group spacing">
-                    <input type="text" pInputText class="form-control" name="skill{{i}}" [(ngModel)]="s.value"
-                           placeholder="e.g. Team work/ Communication " #Skill="ngModel" required
-                           [ngClass]="{'is-invalid': Skill.invalid && (Skill.touched) }">
+                    <p-dropdown [options]="levels" [(ngModel)]="s.level" placeholder="Select a level" optionLabel="label" [showClear]="true" class="lvl"></p-dropdown>
+                    <input type="text" pInputText class="form-control" name="language{{i}}" [(ngModel)]="s.value"
+                           placeholder="e.g. English/German " #Language="ngModel" required
+                           [ngClass]="{'is-invalid': Language.invalid && (Language.touched) }">
                   </div>
                 </div>
               </div>
@@ -28,20 +29,20 @@
 
           <div class="float-child-element centerSkills">
             <div>
-              <h4 class="d-flex align-items-center">
+              <h2 class="d-flex align-items-center">
                 <i class="material-icons">
                   timeline
                 </i>
-                Hard Skills</h4>
-              <p-button class="btn btn-primary" icon="pi pi-plus-circle" (click)="addHardSkill()"></p-button>
+                Certifications</h2>
+              <p-button class="btn btn-primary" icon="pi pi-plus-circle" (click)="addCertification()"></p-button>
 
               <br>
               <div class="row">
-                <div class="col-md-4" *ngFor="let s of resume.skillsH; let i=index">
+                <div class="col-md-4" *ngFor="let s of resume.certifications; let i=index">
                   <div class="form-group spacing">
-                    <input type="text" pInputText class="form-control" name="skill{{i}}" [(ngModel)]="s.value"
-                           placeholder="e.g. Java / Angular / .Net " #Skill="ngModel" required
-                           [ngClass]="{'is-invalid': Skill.invalid && (Skill.touched) }">
+                    <input type="text" pInputText class="form-control" name="certification{{i}}" [(ngModel)]="s.value"
+                           placeholder="e.g. Cambridge/Toefl " #Certification="ngModel" required
+                           [ngClass]="{'is-invalid': Certification.invalid && (Certification.touched) }">
                   </div>
                 </div>
               </div>
@@ -63,4 +64,5 @@
     </ng-template>
   </p-card>
 </div>
+
 

@@ -11,6 +11,8 @@ export class Resume {
   otherDetails: string="";
   skillsS: SoftSkill[] = [];
   skillsH: HardSkill[] = [];
+  languages: Languages[] = [];
+  certifications: Certifications[] = [];
 
   constructor() {
     this.experiences.push(new Experience());
@@ -32,8 +34,8 @@ export class Experience {
 export class Education {
   degree: string="";
   college: string="";
-  startDate: string | null="";
-  endDate: string | null="";
+  startDate:string | null;
+  endDate: string | null;
   city: string="";
   current:boolean=false
 }
@@ -43,5 +45,14 @@ export class SoftSkill {
 }
 
 export class HardSkill {
+  value: string="";
+}
+
+export class Languages {
+  value: string="";
+  level: string="";
+}
+
+export class Certifications {
   value: string="";
 }

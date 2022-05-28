@@ -32,6 +32,7 @@ export class GenerateComponent implements OnInit {
 
 
   generatePdf(action = 'open') {
+    console.log(this.resume.languages[0].level);
     //this.currentDate();
     console.log(pdfMake);
     //const documentDefinition = this.getDocumentDefinition();
@@ -58,33 +59,44 @@ export class GenerateComponent implements OnInit {
     return {
       content: [
         {
-          text: this.resume.name,
-          bold: true,
-          fontSize: 20,
-          alignment: 'center',
-          margin: [0, 0, 0, 20],
+          style: 'tableExample',
+          table: {
+            widths: ['*', 'auto'],
+            height:[30,'*'],
+            body: [
+              [ [{
+                text: this.resume.name,
+                bold: true,
+                fontSize: 20,
+                alignment: 'left',
+                margin: [0, 0, 0, 20],
+              },
+                {
+                  text: this.resume.position,
+                  bold: true,
+                  fontSize: 15,
+                  alignment: 'left',
+                  margin: [0, 0, 0, 20],
+                }],
+                [this.getProfilePicObject()]
+              ],
+            ]
+          }
         },
+
         {
-          text: this.resume.position,
-          bold: true,
-          fontSize: 15,
-          alignment: 'center',
-          margin: [0, 0, 0, 20],
+          text: this.resume.address,
+          alignment: 'center'
         },
-        {
-          text: this.resume.address
-        },
-        [
-          this.getProfilePicObject()
-        ],
+
         {
           style: 'tableExample',
           table: {
             heights: [100],
-            widths:[180,400],
+            widths:[165,415],
             body: [
               [
-                { border:[false,false,false,false], fillColor:'#eeeeee',
+                { border:[false,false,false,false], fillColor:'#eeeeee', rowSpan: 2,
                   columns: [
                     [{
 
@@ -94,16 +106,85 @@ export class GenerateComponent implements OnInit {
                     },
 
                       {
-                        text: 'Email : ' + this.resume.email,
+                        text: [{text: 'Email: ', bold: true} , this.resume.email],
                       },
                       {
-                        text: 'Contant No : ' + this.resume.contactNo,
+                        text: [{text: 'Phone Nr: ', bold: true} ,this.resume.contactNo],
                       },
                       {
-                        text: 'GitHub: ' + this.resume.socialProfile,
+                        text: [{text: 'Linkedln: ', bold: true, color:'black'} , this.resume.socialProfile],
                         link: this.resume.socialProfile,
                         color: 'blue',
+                      },
+                      {
+                        text: '\nSoft Skills',
+                        fontSize: 16,
+                        bold: true
+                      },
+                      {
+                        columns : [
+                          {
+                            ul : [
+                              ...this.resume.skillsS.filter((value, index) => index % 2 === 0).map(s => s.value)
+                            ]
+                          },
+                          {
+                            ul : [
+                              ...this.resume.skillsS.filter((value, index) => index % 2 === 1).map(s => s.value)
+                            ]
+                          },
+
+                        ]
+                      },
+
+                      {
+                        text: '\nHard Skills',
+                        fontSize: 16,
+                        bold: true
+                      },
+                      {
+                        columns : [
+                          {
+                            ul : [
+                              ...this.resume.skillsH.filter((value, index) => index % 2 === 0).map(s => s.value)
+                            ]
+                          },
+                          {
+                            ul : [
+                              ...this.resume.skillsH.filter((value, index) => index % 2 === 1).map(s => s.value)
+                            ]
+                          },
+                        ]
+                      },
+                      {
+                        text: '\nLanguages',
+                        fontSize: 16,
+                        bold: true
+                      },
+                      {
+                        columns : [
+                          {
+                            ul : [
+                              ...this.resume.languages.filter((value, index) => index % 1 === 0 ).map(s => s.value+" - "+ JSON.stringify(s.value).slice(10, -2))
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        text: '\nCertifications',
+                        fontSize: 16,
+                        bold: true
+                      },
+                      {
+                        columns : [
+                          {
+                            ul : [
+                              ...this.resume.certifications.filter((value, index) => index % 3 === 0).map(s => s.value)
+                            ]
+                          }
+                        ]
                       }
+
                     ]
                   ]
                 },
@@ -116,7 +197,7 @@ export class GenerateComponent implements OnInit {
                     },
                       this.getExperienceObject(this.resume.experiences),
                       {
-                        text: 'Education',
+                        text: '\nEducation',
                         fontSize: 16,
                         bold: true
                       },
@@ -150,7 +231,7 @@ export class GenerateComponent implements OnInit {
       tableHeader: {
         bold: true,
       },
-      pageMargins: [ 0, 20, 0, 20 ]
+      pageMargins: [ 0, 0, 0, 20 ]
 
     }
   }
@@ -445,7 +526,7 @@ export class GenerateComponent implements OnInit {
 
   currentDate() {
 
-    this.resume.experiences.forEach(experience => {
+   /* this.resume.experiences.forEach(experience => {
       console.log(experience.startDate);
       console.log(experience.endDate);
 
@@ -472,11 +553,33 @@ export class GenerateComponent implements OnInit {
 
       let sd = education.startDate;
       education.startDate = this.datepipe.transform(sd, 'MM/yyyy');
+    });*/
+
+
+
+    this.resume.experiences.forEach(experience => {
+
+      const datePipeSD = new DatePipe('en-US');
+      let ed = experience.endDate;
+      experience.endDate = datePipeSD.transform(ed, 'MM/yyyy');
+
+
+      let sd = experience.startDate;
+      experience.startDate = this.datepipe.transform(sd, 'MM/yyyy');
+    });
+
+
+    this.resume.educations.forEach(edu => {
+
+      const datePipeSD = new DatePipe('en-US');
+      let ed = edu.endDate;
+      edu.endDate = datePipeSD.transform(ed, 'MM/yyyy');
+
+
+      let sd = edu.startDate;
+      edu.startDate = this.datepipe.transform(sd, 'MM/yyyy');
     });
   }
-
-
-
 
 
   }

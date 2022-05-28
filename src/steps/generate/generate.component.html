@@ -1,24 +1,28 @@
 <div class="stepsdemo-content centerForm">
   <p-card class="personalBar">
-    <div class="col-md-4">
-      <div class="shadow-sm card action-buttons ">
-        <p-button (click)="resumeForm.valid ? generatePdf('open') : ''" icon="pi pi-file-pdf" label="Open PDF"
-                  class="btn btn-primary d-flex align-items-center justify-content-center row spacing-all">
-        </p-button>
-        <p-button (click)="resumeForm.valid ? generatePdf('download') : ''" icon="pi pi-download" label="Download PDF"
-                  class="btn btn-primary d-flex align-items-center justify-content-center row spacing-all">
-        </p-button>
-        <p-button (click)="resumeForm.valid ? generatePdf('print') : ''" icon="pi pi-print" label="Print PDF"
-                  class="btn btn-primary d-flex align-items-center justify-content-center row spacing-all">
-        </p-button>
+    <form #resumeForm="ngForm">
+      <div class="col-md-4">
+        <div class="centerGif"><img alt="Card" src="assets/images/generate.gif" class="resizeGif"></div>
 
-        <p-button type='reset' (click)="resetForm()" icon="pi pi-times-circle" label="Reset"
-                  class="btn btn-primary d-flex align-items-center justify-content-center row spacing-all">
-        </p-button>
+
+        <div class="shadow-sm card action-buttons ">
+          <p-button (click)="resumeForm.valid ? generatePdf('open') : ''" icon="pi pi-file-pdf" label="Open PDF"
+                    class="btn btn-primary d-flex align-items-center justify-content-center row spacing-all">
+          </p-button>
+          <p-button (click)="resumeForm.valid ? generatePdf('download') : ''" icon="pi pi-download" label="Download PDF"
+                    class="btn btn-primary d-flex align-items-center justify-content-center row spacing-all">
+          </p-button>
+          <p-button (click)="resumeForm.valid ? generatePdf('print') : ''" icon="pi pi-print" label="Print PDF"
+                    class="btn btn-primary d-flex align-items-center justify-content-center row spacing-all">
+          </p-button>
+
+          <p-button type='reset' (click)="resetForm()" icon="pi pi-times-circle" label="Reset"
+                    class="btn btn-primary d-flex align-items-center justify-content-center row spacing-all">
+          </p-button>
+        </div>
       </div>
+    </form>
 
-
-    </div>
 
     <ng-template pTemplate="footer">
       <div class="grid grid-nogutter justify-content-end">

@@ -15,6 +15,8 @@ import {EducationComponent} from "../steps/education/education.component";
 import {RegisterComponent} from "../register/components/register.component";
 import {IntroductionComponent} from "../steps/introduction/introduction.component";
 import {GenerateComponent} from "../steps/generate/generate.component";
+import {Languages} from "../steps/resume";
+import {LanguagesComponent} from "../steps/languages/languages.component";
 
 
 
@@ -64,6 +66,7 @@ const routes: Routes = [
       { path: 'introduction', component: IntroductionComponent},
       { path: 'personal', component: PersonalComponent },
       { path: 'skills', component: SkillsComponent},
+      { path: 'languages', component: LanguagesComponent},
       { path: 'experience', component: ExperienceComponent},
       { path: 'education', component: EducationComponent},
       { path: 'generate', component: GenerateComponent}
