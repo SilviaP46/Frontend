@@ -32,9 +32,7 @@ export class GenerateComponent implements OnInit {
 
 
   generatePdf(action = 'open') {
-    console.log(this.resume.languages[0].level);
-    //this.currentDate();
-    console.log(pdfMake);
+    //this.currentDate()
     //const documentDefinition = this.getDocumentDefinition();
     const documentDefinition = this.ex();
 
@@ -61,42 +59,65 @@ export class GenerateComponent implements OnInit {
         {
           style: 'tableExample',
           table: {
-            widths: ['*', 'auto'],
-            height:[30,'*'],
+            widths: [500, 30],
+            //height:[10,'*'],
             body: [
-              [ [{
-                text: this.resume.name,
-                bold: true,
-                fontSize: 20,
-                alignment: 'left',
-                margin: [0, 0, 0, 20],
-              },
-                {
-                  text: this.resume.position,
-                  bold: true,
-                  fontSize: 15,
-                  alignment: 'left',
-                  margin: [0, 0, 0, 20],
-                }],
-                [this.getProfilePicObject()]
-              ],
+              [
+                { border:[false,false,false,false],
+                  fillColor:'#3d366b',
+                  columns:[
+                    [
+                      [{
+                        text: this.resume.name,
+                        bold: true,
+                        fontSize: 20,
+                        alignment: 'left', color:'white',
+                        margin: [0, 0, 0, 20],
+                      },
+                        {
+                          text: this.resume.position,
+                          bold: true,
+                          fontSize: 15,
+                          alignment: 'left',
+                          color:'white',
+                          margin: [0, 0, 0, 20],
+                        }
+
+                        ],
+
+                    ]
+
+                  ]
+
+                },
+
+                { border:[false,false,false,false],
+                  fillColor:'#3d366b',
+                  columns:[
+
+                        [this.getProfilePicObject()]
+
+                  ]
+
+                },
+
+               /* [this.getProfilePicObject()]*/
+
+              ]
+
+
             ]
           }
         },
 
         {
-          text: this.resume.address,
-          alignment: 'center'
-        },
-
-        {
           style: 'tableExample',
           table: {
-            heights: [100],
+            heights: ['auto'],
             widths:[165,415],
             body: [
               [
-                { border:[false,false,false,false], fillColor:'#eeeeee', rowSpan: 2,
+                { border:[false,false,false,false], fillColor:'#eeeeee',
                   columns: [
                     [{
 
@@ -183,6 +204,18 @@ export class GenerateComponent implements OnInit {
                             ]
                           }
                         ]
+                      },
+                      {
+                        text:"\n"
+                      },
+                      {
+                        columns : [
+                          { qr: this.resume.name + ', Contact No : ' + this.resume.contactNo,
+                            fit : 100,
+                            alignment: 'center'},
+
+
+                        ]
                       }
 
                     ]
@@ -190,8 +223,13 @@ export class GenerateComponent implements OnInit {
                 },
                 {border:[false,false,false,false], fillColor:'#eeeeff',
                   columns: [
-                    [{
-                      text: 'Experience',
+                    [
+                      {
+                        text: this.resume.address,
+                        alignment: 'center'
+                      },
+                      {
+                      text: '\nExperience',
                       fontSize: 16,
                       bold: true
                     },
@@ -231,7 +269,7 @@ export class GenerateComponent implements OnInit {
       tableHeader: {
         bold: true,
       },
-      pageMargins: [ 0, 0, 0, 20 ]
+      pageMargins: [ 0, 0, 0, 0 ]
 
     }
   }
