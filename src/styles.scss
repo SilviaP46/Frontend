@@ -23,13 +23,23 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .spacing{
   padding-top: 10px;
 }
+.spacing-bottom{
+  padding-bottom: 10px;
+}
 
 .spacing-all{
   padding: 10px;
 }
 
 .spacing-left{
-  padding-left: 15px;
+  padding-left: 85px;
+}
+
+.spacing-themeMsg{
+  padding-left: 110px;
+}
+.spacing-right{
+  padding-right: 15px;
 }
 
 .floatRight{
@@ -43,4 +53,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .centerCheckBox{
   margin: auto;
   padding: 10px;
+}
+
+.floatButtons{
+  padding-left: 55px;
 }

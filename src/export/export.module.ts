@@ -10,6 +10,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {ButtonModule} from "primeng/button";
 import {CardModule} from "primeng/card";
+import {EditorModule} from "primeng/editor";
 
 
 
@@ -27,7 +28,8 @@ import {CardModule} from "primeng/card";
         InputTextModule,
         InputTextareaModule,
         ButtonModule,
-        CardModule
+        CardModule,
+        EditorModule,
     ],
   exports:[
     ExportComponent

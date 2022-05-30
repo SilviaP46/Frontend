@@ -24,6 +24,10 @@ import { GenerateComponent } from './generate/generate.component';
 import {ImageModule} from "primeng/image";
 import { LanguagesComponent } from './languages/languages.component';
 import {DropdownModule} from "primeng/dropdown";
+import {EditorModule} from "primeng/editor";
+import {ConfirmDialogModule} from "primeng/confirmdialog";
+import {ConfirmationService} from "primeng/api";
+import {RadioButtonModule} from "primeng/radiobutton";
 
 
 @NgModule({
@@ -37,25 +41,28 @@ import {DropdownModule} from "primeng/dropdown";
     GenerateComponent,
     LanguagesComponent
   ],
-    imports: [
+  imports: [
 
-        ToastModule,
-        RouterModule,
-        StepsModule,
-        StepsRoutingModule,
-        CardModule,
-        ButtonModule,
-        FormsModule,
-        CommonModule,
-        InputTextModule,
-        InputTextareaModule,
-        CalendarModule,
-        CheckboxModule,
-        TreeSelectModule,
-        ImageModule,
-        DropdownModule
-    ],
-  providers:[TicketService,SharingService,DatePipe],
+    ToastModule,
+    RouterModule,
+    StepsModule,
+    StepsRoutingModule,
+    CardModule,
+    ButtonModule,
+    FormsModule,
+    CommonModule,
+    InputTextModule,
+    InputTextareaModule,
+    CalendarModule,
+    CheckboxModule,
+    TreeSelectModule,
+    ImageModule,
+    DropdownModule,
+    EditorModule,
+    ConfirmDialogModule,
+    RadioButtonModule
+  ],
+  providers:[TicketService,SharingService,DatePipe,ConfirmationService],
   exports:[
     StepsComponent,
     PersonalComponent,

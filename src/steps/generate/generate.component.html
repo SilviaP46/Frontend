@@ -2,10 +2,31 @@
   <p-card class="personalBar">
     <form #resumeForm="ngForm">
       <div class="col-md-4">
-        <div class="centerGif"><img alt="Card" src="assets/images/generate.gif" class="resizeGif"></div>
+
+        <div class="spacing-themeMsg"><h4>You are almost done. Pick a theme and generate your resume!</h4></div>
+
+        <div class="spacing-left">
+          <p-radioButton name="theme1" value="Purple" [(ngModel)]="resume.theme" id="theme1"></p-radioButton>
+          <label for="theme1" class="spacing-radioButton">Purple-Theme</label>
 
 
-        <div class="shadow-sm card action-buttons ">
+          <p-radioButton name="theme2" value="Pink" [(ngModel)]="resume.theme" id="theme2"></p-radioButton>
+          <label for="theme2" class="spacing-radioButton">Pink-Theme</label>
+
+
+          <p-radioButton name="theme3" value="Blue" [(ngModel)]="resume.theme" id="theme3"></p-radioButton>
+          <label for="theme3" class="spacing-radioButton">Blue-Theme</label>
+
+          <p-radioButton name="theme4" value="Green" [(ngModel)]="resume.theme" id="theme4"></p-radioButton>
+          <label for="theme4" class="spacing-radioButton">Green-Theme</label>
+
+        </div>
+        <br>
+        <div class="spacing-left"><img alt="Card" src="assets/images/generate.gif" class="resizeGif"></div>
+
+
+        <br>
+        <div class="floatButtons">
           <p-button (click)="resumeForm.valid ? generatePdf('open') : ''" icon="pi pi-file-pdf" label="Open PDF"
                     class="btn btn-primary d-flex align-items-center justify-content-center row spacing-all">
           </p-button>
@@ -16,12 +37,13 @@
                     class="btn btn-primary d-flex align-items-center justify-content-center row spacing-all">
           </p-button>
 
-          <p-button type='reset' (click)="resetForm()" icon="pi pi-times-circle" label="Reset"
-                    class="btn btn-primary d-flex align-items-center justify-content-center row spacing-all">
+          <p-button type='reset' (click)="confirmPosition('top')" icon="pi pi-times-circle" label="Reset"
+                    class="spacing-all">
           </p-button>
         </div>
       </div>
     </form>
+    <p-confirmDialog [style]="{width: '50vw'}" key="positionDialog" [position]="position" [baseZIndex]="10000" rejectButtonStyleClass="p-button-outlined"></p-confirmDialog>
 
 
     <ng-template pTemplate="footer">

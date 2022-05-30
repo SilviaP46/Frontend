@@ -11,6 +11,9 @@
             <p-button class="btn btn-primary" icon="pi pi-plus-circle" (click)="addEducation()"></p-button>
           </div>
           <div class="row" *ngFor="let ed of resume.educations; let i=index">
+            <h4>
+              <i class="pi pi-chevron-right"></i>
+              Job</h4>
             <div class="col-md-3">
               <div class="form-group spacing">
                 <select class="form-control" placeholder="Degree" name="degree{{i}}" [(ngModel)]="ed.degree"
@@ -35,7 +38,16 @@
               </div>
             </div>
 
-            <div class="field col-12 md:col-4 spacing">
+            <div class="col-md-3">
+              <div class="form-group spacing">
+                <input type="text" pInputText class="form-control" name="specialization{{i}}"
+                       [(ngModel)]="ed.specialization"
+                       placeholder="Specialization" #Specialization="ngModel" required
+                       [ngClass]="{'is-invalid': Specialization.invalid && (Specialization.touched || resumeForm.submitted) }">
+              </div>
+            </div>
+
+            <div class="spacing">
               <p-calendar [(ngModel)]="ed.startDate" [showIcon]="true" view="month" dateFormat="yy/mm" id="icon"
                           class="form-control"
                           name="startDate{{i}}" placeholder="Start Date" #startDate="ngModel"> <!--required
@@ -43,7 +55,7 @@
               </p-calendar>
             </div>
 
-            <div class="field col-12 md:col-4 spacing">
+            <div class="spacing">
               <p-calendar [(ngModel)]="ed.endDate" [showIcon]="true" view="month" dateFormat="yy/mm" id="icon2"
                           class="form-control"
                           name="endDate{{i}}" placeholder="End Date" #endDate="ngModel"></p-calendar>
@@ -59,15 +71,15 @@
 
       <!-- Other Details -->
 
-      <div class="shadow-sm card">
+      <!--<div class="shadow-sm card">
         <div class="card-body">
           <h4 class="card-title d-flex align-items-center">
-            <i class="material-icons"> list </i>Other Details</h4>
+            <i class="spacing-all pi pi-list"></i>Other Details</h4>
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                  <textarea type="text" class="form-control" [(ngModel)]="resume.otherDetails" name="otherDetails"
-                            rows="4" pInputTextarea></textarea>
+                <textarea type="text" rows="5" cols="50" class="form-control" [(ngModel)]="resume.otherDetails" name="otherDetails" pInputTextarea
+                          [autoResize]=true></textarea>
 
               </div>
             </div>
@@ -75,12 +87,43 @@
         </div>
       </div>
       <br>
+    </form>-->
+
+      <div>
+        <div class="spacing-bottom">
+          <h4><i class="spacing-all pi pi-list"></i>Other Details</h4>
+          <p-button class="spacing-bottom" icon="pi pi-plus-circle" (click)="addDetails()"></p-button>
+        </div>
+
+        <div class="spacing-bottom" *ngFor="let v of resume.otherDetails; let i=index">
+          <h4>
+            <i class="pi pi-chevron-right"></i>
+          </h4>
+          <div class="form-group spacing">
+            <select class="spacing" name="type{{i}}" [(ngModel)]="v.type"
+                    #Type="ngModel" required
+                    [ngClass]="{'is-invalid': Type.invalid && (Type.touched || resumeForm.submitted) }">
+              <option [value]="d" *ngFor="let d of types">{{d}}</option>
+            </select>
+          </div>
+          <div>
+            <div class="spacing">
+                    <textarea name="details{{i}}" [(ngModel)]="v.value" rows="8" cols="80"
+                              placeholder="Job Description" pInputTextarea></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </form>
+
 
     <ng-template pTemplate="footer">
       <div class="grid grid-nogutter justify-content-end">
         <p-button label="Back" (onClick)="previousPage()" icon="pi pi-angle-left" iconPos="left"></p-button>
-        <p-button label="Next" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right"  class="floatRight"></p-button>
+        <p-button label="Next" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right"
+                  class="floatRight"></p-button>
       </div>
     </ng-template>
   </p-card>

@@ -70,7 +70,8 @@ const routes: Routes = [
       { path: 'experience', component: ExperienceComponent},
       { path: 'education', component: EducationComponent},
       { path: 'generate', component: GenerateComponent}
-    ]
+    ],
+    canActivate: [ExportGuard]
   }
 
   /*{path:'**', component: Error404Component}*/

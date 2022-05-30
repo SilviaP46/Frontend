@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Education, Experience, Resume} from "../resume";
+import {Details, Education,Resume} from "../resume";
 import {SharingService} from "../sharing-service";
 import {Router} from "@angular/router";
+import {SelectItem} from "primeng/api";
 
 @Component({
   selector: 'app-education',
@@ -12,15 +13,16 @@ export class EducationComponent implements OnInit {
 
   submitted: boolean = false;
   resume = new Resume();
-  degrees=['General School','High School','Bachelors', 'Masters', 'Doctorate'];
+  degrees=['General School Diploma','High School Diploma','Bachelors Degree', 'Masters Degree', 'Doctorate Degree'];
+  types=['Hobbies','Accomplishments','Personal Projects'];
 
-  constructor(private sharingService:SharingService,private router: Router) {
-
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
     this.resume=JSON.parse(sessionStorage.getItem('resume') || '{}');
-    this.sharingService.setReadOnly(false);
+    //this.sharingService.setReadOnly(false);
+
   }
 
   previousPage() {
@@ -38,9 +40,12 @@ export class EducationComponent implements OnInit {
     return;
   }
 
-
   addEducation() {
     this.resume.educations.push(new Education());
+  }
+
+  addDetails() {
+    this.resume.otherDetails.push(new Details());
   }
 
 }

@@ -8,17 +8,20 @@ export class Resume {
   socialProfile: string="";
   experiences: Experience[] = [];
   educations: Education[] = [];
-  otherDetails: string="";
+  otherDetails: Details[] = [];
   skillsS: SoftSkill[] = [];
   skillsH: HardSkill[] = [];
   languages: Languages[] = [];
   certifications: Certifications[] = [];
+  theme:Theme;
+
 
   constructor() {
     this.experiences.push(new Experience());
     this.educations.push(new Education());
     this.skillsS.push(new SoftSkill());
     this.skillsH.push(new HardSkill());
+    this.otherDetails.push(new Details());
   }
 }
 
@@ -36,6 +39,7 @@ export class Education {
   college: string="";
   startDate:string | null;
   endDate: string | null;
+  specialization:string="";
   city: string="";
   current:boolean=false
 }
@@ -55,4 +59,15 @@ export class Languages {
 
 export class Certifications {
   value: string="";
+}
+
+export class Details {
+  value: string="";
+  type: string="";
+}
+
+export class Theme {
+  c1: string="";
+  c2: string="";
+  c3: string="";
 }

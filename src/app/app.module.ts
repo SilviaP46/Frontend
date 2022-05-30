@@ -6,7 +6,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
-import {MessageService} from "primeng/api";
+import {ConfirmationService, MessageService} from "primeng/api";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {BackendModule} from "../backend/backend.module";
 import {LoginModule} from "../login/login.module";
@@ -64,7 +64,7 @@ import {StepsDemoModule} from "../steps/steps.module";
             }
         }), ErrorModule, InputTextModule, InputTextareaModule
     ],
-  providers: [MessageService,{
+  providers: [MessageService,ConfirmationService,{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true,
