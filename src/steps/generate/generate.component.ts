@@ -17,15 +17,20 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 export class GenerateComponent implements OnInit {
 
   resume = new Resume();
-  position: string="";
-  themePurple=['ok','ok']
+  position: string = "";
+  selectedTheme: string = "";
+  themePurple = ['#3d366b', '#eeeeee', '#eeeeff']
+  themeBlue = ['#2b6ea1', '#eeeeee', '#eeeeff']
+  themeGreen = ['#455073', '#C0904D', '#eeeeff']
+  themeMaroon = ['#5b0e2d', '#eeeeee', '#bfae8f']
 
-  constructor(private router: Router, public datepipe: DatePipe,private confirmationService: ConfirmationService, private messageService: MessageService) {
+  constructor(private router: Router, public datepipe: DatePipe, private confirmationService: ConfirmationService, private messageService: MessageService) {
     (window as any).pdfMake.vfs = pdfFonts.pdfMake.vfs;
   }
 
   ngOnInit(): void {
     this.resume = JSON.parse(sessionStorage.getItem('resume') || '{}');
+    this.selectedTheme = 'Purple';
   }
 
 
@@ -34,10 +39,28 @@ export class GenerateComponent implements OnInit {
     sessionStorage.setItem('resume', JSON.stringify(this.resume));
   }
 
+  prepare() {
+    this.currentDate()
+
+    if (this.selectedTheme == 'Purple')
+      this.resume.theme = this.themePurple;
+
+    if (this.selectedTheme == 'Blue')
+      this.resume.theme = this.themeBlue;
+
+    if (this.selectedTheme == 'Brown')
+      this.resume.theme = this.themeGreen;
+
+    if (this.selectedTheme == 'Maroon')
+      this.resume.theme = this.themeMaroon;
+
+
+  }
+
 
   generatePdf(action = 'open') {
-    console.log(this.resume.theme)
-    this.currentDate()
+    this.prepare()
+
     //const documentDefinition = this.getDocumentDefinition();
     const documentDefinition = this.ex();
 
@@ -67,18 +90,19 @@ export class GenerateComponent implements OnInit {
 
   ex() {
     sessionStorage.setItem('resume', JSON.stringify(this.resume));
+    console.log(this.resume.theme[0])
     return {
       content: [
         {
           style: 'tableExample',
           table: {
-            widths: [500, 30],
+            widths: [500, 80],
             heights: 80,
             body: [
               [
                 {
                   border: [false, false, false, false],
-                  fillColor: '#3d366b',
+                  fillColor: this.resume.theme[0],
                   columns: [
                     [
                       [{
@@ -107,33 +131,23 @@ export class GenerateComponent implements OnInit {
 
                 {
                   border: [false, false, false, false],
-                  fillColor: '#3d366b',
-                  columns: [
-
-                    [this.getProfilePicObject()]
-
-                  ]
+                  fillColor: this.resume.theme[0],
+                  columns: [[this.getProfilePicObject()]]
 
                 },
-
-                /* [this.getProfilePicObject()]*/
-
               ]
-
-
             ]
           }
         },
 
         {
-          //style: 'tableExample',
           table: {
             widths: [182, 400],
             heights: 750,
             body: [
               [
                 {
-                  border: [false, false, false, false], fillColor: '#eeeeee',
+                  border: [false, false, false, false], fillColor: this.resume.theme[1],
                   columns: [
                     [
                       {
@@ -252,7 +266,7 @@ export class GenerateComponent implements OnInit {
                   ]
                 },
                 {
-                  border: [false, false, false, false], fillColor: '#eeeeff',
+                  border: [false, false, false, false], fillColor: this.resume.theme[2],
                   columns: [
                     [
                       {
@@ -546,12 +560,12 @@ export class GenerateComponent implements OnInit {
 
   getDetailsObject(details: Details[]) {
 
-    const exs: { border: [boolean, boolean, boolean, boolean], columns: (({ text: string; style: string; bold?: boolean; fontSize:number;margin:number[] } | { text: string; style?: undefined; italics?: boolean; color?: boolean; })[] | { text: string; alignment: string, bold?: boolean; })[]; }[][] = [];
+    const exs: { border: [boolean, boolean, boolean, boolean], columns: (({ text: string; style: string; bold?: boolean; fontSize: number; margin: number[] } | { text: string; style?: undefined; italics?: boolean; color?: boolean; })[] | { text: string; alignment: string, bold?: boolean; })[]; }[][] = [];
 
     details.forEach(d => {
       exs.push(
         [{
-          border: [false,false, false, false],
+          border: [false, false, false, false],
           columns: [
             [{
               text: d.type,
@@ -614,7 +628,8 @@ export class GenerateComponent implements OnInit {
       return {
         image: this.resume.profilePic,
         width: 75,
-        alignment: 'right'
+        alignment: 'right',
+        margin: [5, 3 , 10 , 3]
       };
     }
     return null;
@@ -665,23 +680,22 @@ export class GenerateComponent implements OnInit {
       header: 'Are you sure?',
       icon: 'pi pi-info-circle',
       accept: () => {
-        this.messageService.add({severity:'info', summary:'Confirmed', detail:'Resume data cleared'});
+        this.messageService.add({severity: 'info', summary: 'Confirmed', detail: 'Resume data cleared'});
       },
       reject: (type: any) => {
-        switch(type) {
+        switch (type) {
           case ConfirmEventType.REJECT:
-            this.messageService.add({severity:'error', summary:'Rejected', detail:'You have rejected'});
+            this.messageService.add({severity: 'error', summary: 'Rejected', detail: 'You have rejected'});
             this.resetForm();
             break;
           case ConfirmEventType.CANCEL:
-            this.messageService.add({severity:'warn', summary:'Cancelled', detail:'You have cancelled'});
+            this.messageService.add({severity: 'warn', summary: 'Cancelled', detail: 'You have cancelled'});
             break;
         }
       },
       key: "positionDialog"
     });
   }
-
 
 
 }

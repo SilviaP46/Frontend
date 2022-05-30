@@ -13,7 +13,7 @@ export class Resume {
   skillsH: HardSkill[] = [];
   languages: Languages[] = [];
   certifications: Certifications[] = [];
-  theme:Theme;
+  theme:string[]=[];
 
 
   constructor() {
@@ -66,8 +66,3 @@ export class Details {
   type: string="";
 }
 
-export class Theme {
-  c1: string="";
-  c2: string="";
-  c3: string="";
-}
