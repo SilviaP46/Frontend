@@ -2,7 +2,7 @@ import {Component, Input, OnInit, ViewEncapsulation} from "@angular/core";
 import {Router} from "@angular/router";
 import {TicketService} from "../ticketservice";
 import {Education, Experience, Resume, SoftSkill, HardSkill} from "../resume";
-import {ScriptService} from "../../export/components/script.service";
+import {ScriptService} from "../../export/services/script.service";
 import {SharingService} from "../sharing-service";
 declare let pdfMake: any ;
 

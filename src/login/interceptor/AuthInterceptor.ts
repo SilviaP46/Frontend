@@ -6,7 +6,8 @@ import {Observable} from "rxjs";
 export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if(req.url!=='http://localhost:4201/login' &&req.url!== "http://localhost:4201/register"
-      && req.url.substr(0, 'http://localhost:4201/get/'.length)!=="http://localhost:4201/get/") {
+      && req.url.substr(0, 'http://localhost:4201/get/'.length)!=="http://localhost:4201/get/"
+      && req.url.substr(0, 'http://localhost:4201/getJobs'.length)!=="http://localhost:4201/getJobs") {
 
       req = req.clone({
         setHeaders: {

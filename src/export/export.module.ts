@@ -11,6 +11,7 @@ import {InputTextareaModule} from "primeng/inputtextarea";
 import {ButtonModule} from "primeng/button";
 import {CardModule} from "primeng/card";
 import {EditorModule} from "primeng/editor";
+import {TableModule} from "primeng/table";
 
 
 
@@ -30,6 +31,7 @@ import {EditorModule} from "primeng/editor";
         ButtonModule,
         CardModule,
         EditorModule,
+        TableModule,
     ],
   exports:[
     ExportComponent

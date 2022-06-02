@@ -684,10 +684,11 @@ export class GenerateComponent implements OnInit {
       },
       reject: (type: any) => {
         switch (type) {
-          case ConfirmEventType.REJECT:
+          case ConfirmEventType.REJECT: {
             this.messageService.add({severity: 'error', summary: 'Rejected', detail: 'You have rejected'});
             this.resetForm();
             break;
+          }
           case ConfirmEventType.CANCEL:
             this.messageService.add({severity: 'warn', summary: 'Cancelled', detail: 'You have cancelled'});
             break;

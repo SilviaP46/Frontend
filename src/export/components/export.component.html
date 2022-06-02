@@ -1,21 +1,29 @@
-<p-card header="Simple Card" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
+<p-table [value]="jobs" selectionMode="single" [(selection)]="selectedJob" dataKey="code" responsiveLayout="scroll"
+         (onRowSelect)="onRowSelect($event)">
   <ng-template pTemplate="header">
-    <img alt="Card" src="assets/images/usercard.jpg">
+    <tr>
+      <th>Position</th>
+      <th>City</th>
+      <th>Type</th>
+      <th>Career Level</th>
+      <th>Studies</th>
+      <th>Department</th>
+      <th>Salary</th>
+      <th>Industry</th>
+    </tr>
   </ng-template>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
-</p-card>
-
-<p-card header="Advanced Card" subheader="Card Subheader" [style]="{width: '360px'}" styleClass="p-card-shadow">
-  <ng-template pTemplate="header">
-    <img alt="Card" src="assets/images/usercard.jpg">
+  <ng-template pTemplate="body" let-job>
+    <tr [pSelectableRow]="job">
+      <td>{{job.title}}</td>
+      <td>{{job.city}}</td>
+      <td>{{job.type}}</td>
+      <td>{{job.level}}</td>
+      <td>{{job.studies}}</td>
+      <td>{{job.department}}</td>
+      <td>{{job.salary}}</td>
+      <td>{{job.industry}}</td>
+    </tr>
   </ng-template>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
-  <ng-template pTemplate="footer">
-    <p-button label="Save" icon="pi pi-check"></p-button>
-    <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
-  </ng-template>
-</p-card>
+</p-table>
 
 
