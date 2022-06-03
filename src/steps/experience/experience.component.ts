@@ -25,28 +25,6 @@ export class ExperienceComponent implements OnInit {
     this.resume.experiences.push(new Experience());
   }
 
-  /*currentDate(){
-
-    this.resume.experiences.forEach(experience => {
-      if(experience.current)
-        experience.endDate="present";
-      else {
-
-        var datePipe = new DatePipe('en-US');
-        //let ed = datePipe.transform(experience.endDate, 'MM/yyyy');
-        //let ed=experience.endDate;
-        experience.endDate =datePipe.transform(experience.endDate, 'MM/yyyy');
-      }
-      var datePipe2 = new DatePipe('en-US');
-      //let sd=experience.startDate;
-      experience.startDate =datePipe2.transform(experience.startDate, 'MM/yyyy');
-
-    });
-
-    console.log(this.resume.experiences);
-  }*/
-
-
   nextPage() {
     this.router.navigate(['/steps/education']);
     this.submitted = true;

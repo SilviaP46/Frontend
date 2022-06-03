@@ -1,4 +1,12 @@
-<p-table [value]="jobs" selectionMode="single" [(selection)]="selectedJob" dataKey="code" responsiveLayout="scroll"
+<h3 class="row">Enter keywords about your desired position and city</h3>
+<span class="p-input-icon-right row">
+    <i class="pi pi-spin pi-spinner"></i>
+    <input type="text" pInputText [(ngModel)]="keywords" />
+  <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded" (click)="findJobs()"></button>
+</span>
+
+
+<p-table class="table" [value]="jobs" selectionMode="single" [(selection)]="selectedJob" dataKey="code" responsiveLayout="scroll"
          (onRowSelect)="onRowSelect($event)">
   <ng-template pTemplate="header">
     <tr>
@@ -25,5 +33,14 @@
     </tr>
   </ng-template>
 </p-table>
+
+<p-dialog header="Just a few seconds away.." [(visible)]="displayPosition" [position]="position" [modal]="true" [style]="{width: '50vw'}"
+          [draggable]="false" [resizable]="false">
+  <p>We're looking for the ideal job for you right now!
+    If the table does not appear after 60 seconds, refresh the page.</p>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="displayPosition=false" label="Ok" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>
 
 

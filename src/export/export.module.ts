@@ -12,6 +12,8 @@ import {ButtonModule} from "primeng/button";
 import {CardModule} from "primeng/card";
 import {EditorModule} from "primeng/editor";
 import {TableModule} from "primeng/table";
+import {RippleModule} from "primeng/ripple";
+import {DialogModule} from "primeng/dialog";
 
 
 
@@ -32,6 +34,8 @@ import {TableModule} from "primeng/table";
         CardModule,
         EditorModule,
         TableModule,
+        RippleModule,
+        DialogModule,
     ],
   exports:[
     ExportComponent
