@@ -3,7 +3,7 @@ import {User} from "src/login/models/User";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {MessageService} from "primeng/api";
-import {RegisterService} from "../RegisterService";
+import {RegisterService} from "../register.service";
 import {HttpClient} from "@angular/common/http";
 
 @Component({
@@ -49,16 +49,13 @@ export class RegisterComponent implements OnInit {
         sessionStorage.setItem('email', user.email);
         sessionStorage.setItem('password', user.password);
         sessionStorage.setItem('token', user.token);
+        console.log('aici');
 
-        this.router.navigate(['home']);
       });
     }
+    this.messageService.add({severity:'success', summary: 'Successful Registration', detail: 'Please log in now!'});
+    //this.router.navigate(['login']);
 
-  }
-
-  onSubmit() {
-
-    this.register();
   }
 
   handleClick() {

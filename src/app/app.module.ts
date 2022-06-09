@@ -40,7 +40,6 @@ import {StepsDemoModule} from "../steps/steps.module";
 
   ],
     imports: [
-        //StepsDemoModule,
         BrowserModule,
         AppRoutingModule,
         OverlayPanelModule,

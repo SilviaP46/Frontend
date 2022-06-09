@@ -40,6 +40,7 @@ export class ExportComponent {
 
   findJobs(){
     console.log(this.keywords)
+    console.log(sessionStorage.getItem('token'));
     this.subscription.add(
       this.jobService.getJobs(this.keywords).subscribe( (jobs) => {
         this.jobs = jobs;

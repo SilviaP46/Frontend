@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MenuItem, MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-home-page',
@@ -7,14 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
+  constructor(private messageService: MessageService) {
   }
 
-  getUsername(){
+  ngOnInit(): void {
+
+  }
+
+  getUsername() {
     return sessionStorage.getItem('username');
   }
 
 }
-

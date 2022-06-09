@@ -1,4 +1,4 @@
-import {Component, ElementRef, Inject, LOCALE_ID, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 import {OverlayPanel} from "primeng/overlaypanel";
 

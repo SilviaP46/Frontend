@@ -1,5 +1,4 @@
 import {Component, LOCALE_ID, OnDestroy, OnInit} from '@angular/core';
-import {interval, Subscription} from "rxjs";
 import {TranslateService} from "@ngx-translate/core";
 
 
@@ -21,9 +20,7 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit(): void {
-   /* interval(2000)
-      .subscribe(() => this.notificationService.checkIfNotificationRead().subscribe(hasNewNotifications => this.refreshNotificationService.updateNewNotification(hasNewNotifications)));
-*/
+
 
   }
 

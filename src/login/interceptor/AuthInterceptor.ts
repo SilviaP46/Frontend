@@ -20,18 +20,6 @@ export class AuthInterceptor implements HttpInterceptor {
         },
       });
     }
-   /* if( req.url.substr(0, 'http://localhost:4201/bugs/addAttachment/'.length)==="http://localhost:4201/bugs/addAttachment/"){
-      req = req.clone({
-        setHeaders: {
-          'enctype': "multipart/form-data",
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Credentials': 'true',
-          'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token, content-type'
-        },
-      });
-    }*/
     return next.handle(req);
   }
 }

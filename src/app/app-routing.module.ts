@@ -3,10 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import {LoginComponent} from "../login/components/login/login.component";
 import {HomeGuard} from "../navigation/components/guards/HomeGuard";
-import {UserGuard} from "../navigation/components/guards/UserGuard";
 import {LoginGuard} from "../navigation/components/guards/LoginGuard";
 import {RegisterGuard} from "../navigation/components/guards/RegisterGuard";
-import {ExportGuard} from "../navigation/components/guards/ExportGuard";
 import {PersonalComponent} from "../steps/personal/personal.component";
 import {SkillsComponent} from "../steps/skills/skills.component";
 import {StepsComponent} from "../steps/steps.component";
@@ -15,12 +13,12 @@ import {EducationComponent} from "../steps/education/education.component";
 import {RegisterComponent} from "../register/components/register.component";
 import {IntroductionComponent} from "../steps/introduction/introduction.component";
 import {GenerateComponent} from "../steps/generate/generate.component";
-import {Languages} from "../steps/resume";
 import {LanguagesComponent} from "../steps/languages/languages.component";
 
 
 
 const routes: Routes = [
+  /*{path:'**', component: Error404Component}*/
 
   {
     path: '',
@@ -29,7 +27,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    pathMatch:'full',
+    //pathMatch:'full',
     loadChildren: () => import('../home/home.module').then(m => m.HomeModule),
     canActivate: [HomeGuard]
   },
@@ -37,12 +35,7 @@ const routes: Routes = [
   {
     path: 'export',
     loadChildren: () => import('../export/export.module').then(m => m.ExportModule),
-    canActivate: [ExportGuard]
-  },
-  {
-    path: 'users',
-    loadChildren: () => import('../user/user.module').then(m => m.UserModule),
-    canActivate: [UserGuard]
+    canActivate: [HomeGuard]
   },
 
   {
@@ -71,10 +64,10 @@ const routes: Routes = [
       { path: 'education', component: EducationComponent},
       { path: 'generate', component: GenerateComponent}
     ],
-    canActivate: [ExportGuard]
+    canActivate: [HomeGuard]
   }
 
-  /*{path:'**', component: Error404Component}*/
+
 ];
 
 @NgModule({

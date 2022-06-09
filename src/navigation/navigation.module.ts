@@ -6,10 +6,7 @@ import {AppTranslateModule} from "../translate/translate.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {RouterModule} from "@angular/router";
 import {LoginGuard} from "./components/guards/LoginGuard";
-import {UserGuard} from "./components/guards/UserGuard";
 import {HomeGuard} from "./components/guards/HomeGuard";
-import {ExportGuard} from "./components/guards/ExportGuard";
-import {ResumeGuard} from "./components/guards/ResumeGuard";
 import {RegisterGuard} from "./components/guards/RegisterGuard";
 
 
@@ -30,10 +27,7 @@ import {RegisterGuard} from "./components/guards/RegisterGuard";
   providers:[
     LoginGuard,
     RegisterGuard,
-    UserGuard,
-    HomeGuard,
-    ExportGuard,
-    ResumeGuard
+    HomeGuard
   ]
 })
 export class NavigationModule { }

@@ -13,7 +13,7 @@ export class RegisterGuard implements CanActivate {
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
     if(sessionStorage.getItem('username')!==null)
-      return this.router.navigate(['home']);
+      return this.router.navigate(['login']);
     return true;
   }
 }
