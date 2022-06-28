@@ -32,8 +32,8 @@
                      #Position="ngModel" required
                      [ngClass]="{'is-invalid': Position.invalid && (Position.touched || resumeForm.submitted) }"/><br>
             </div>
-
-            <div class="form-group spacing">
+            <br><br>
+            <div>
                 <span class="p-float-label">
                     <textarea class="form-control" [(ngModel)]="resume.address" name="Short personal statement" rows="5"
                               cols="45"
@@ -43,9 +43,10 @@
                     <label>Short personal statement</label>
                 </span>
             </div>
+
           </div>
 
-          <div class="col-md-6">
+          <div class="float-child-element">
             <div class="form-group spacing">
               <input type="text" pInputText class="form-control" [(ngModel)]="resume.contactNo" name="contactNo"
                      placeholder="Contact No." #ContactNo="ngModel" required
@@ -57,22 +58,31 @@
                      [ngClass]="{'is-invalid': Email.invalid && (Email.touched || resumeForm.submitted) }">
             </div>
             <div class="form-group spacing">
-              <input type="text" pInputText class="form-control" [(ngModel)]="resume.socialProfile" name="socialProfile"
+              <input type="text" pInputText class="form-control" [(ngModel)]="resume.socialProfile"
+                     name="socialProfile"
                      placeholder="Social Profile ">
             </div>
+            <div class="spacing">
+              <label for="">Show your picture in Resume: </label>
+              <br>
+              <input type="file" pInputText (change)="fileChanged($event)"
+                     aria-describedby="fileHelpId">
+            </div>
           </div>
-        </div>
+
+
+          <div style="position: relative; height: 200px; width: 160px; padding-left:60px;" class="float-child-element">
+
+            <img *ngIf="resume.profilePic" [src]="resume.profilePic"
+                 style='position: absolute;  width: 150px; height: 200px; object-fit: cover; border:3px solid #73AD21;'
+                 alt='image'/>
+            <p-button *ngIf="resume.profilePic" pButton pRipple type="button" icon="pi pi-times"
+                      class="p-button-rounded p-button-outlined" (onClick)="deletePic()"></p-button>
+          </div>
+
+      </div>
       </div>
       <br>
-
-      <div class="card p-4">
-        <div class="form-group">
-          <label class="h4 mb-3" for="">Show your picture in Resume: </label>
-          <input type="file" pInputText class="form-control-file" (change)="fileChanged($event)"
-                 aria-describedby="fileHelpId">
-        </div>
-        <img *ngIf="resume.profilePic" [src]="resume.profilePic" class="img-thumbnail">
-      </div>
 
     </form>
 

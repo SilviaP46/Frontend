@@ -13,15 +13,28 @@ export class EducationComponent implements OnInit {
 
   submitted: boolean = false;
   resume = new Resume();
-  degrees=['General School Diploma','High School Diploma','Bachelors Degree', 'Masters Degree', 'Doctorate Degree'];
-  types=['Hobbies','Accomplishments','Personal Projects'];
+  degrees:any[]=[];
+  types:any[]=[];
+
 
   constructor(private router: Router) {
   }
 
   ngOnInit(): void {
     this.resume=JSON.parse(sessionStorage.getItem('resume') || '{}');
-    //this.sharingService.setReadOnly(false);
+    this.degrees = [
+      {label: 'General School Diploma'},
+      {label: 'High School Diploma'},
+      {label: 'Bachelors Degree'},
+      {label: 'Masters Degree'},
+      {label: 'Doctorate Degree'},
+    ];
+
+    this.types = [
+      {label: 'Hobbies'},
+      {label: 'Accomplishments'},
+      {label: 'Personal Projects'}
+    ];
 
   }
 
@@ -36,7 +49,7 @@ export class EducationComponent implements OnInit {
     this.router.navigate(['/steps/generate']);
     this.submitted = true;
     sessionStorage.setItem('resume',JSON.stringify(this.resume));
-
+    console.log(this.resume.otherDetails[0].type)
     return;
   }
 

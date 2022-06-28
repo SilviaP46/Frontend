@@ -60,6 +60,7 @@ export class GenerateComponent implements OnInit {
 
   generatePdf(action = 'open') {
     this.prepare()
+    console.log(JSON.stringify(this.resume.languages[0].level).slice(10,-2))
 
     //const documentDefinition = this.getDocumentDefinition();
     const documentDefinition = this.ex();
@@ -229,7 +230,7 @@ export class GenerateComponent implements OnInit {
                         columns: [
                           {
                             ul: [
-                              ...this.resume.languages.filter((value, index) => index % 1 === 0).map(s => s.value + " - " + JSON.stringify(s.value).slice(10, -2))
+                              ...this.resume.languages.filter((value, index) => index % 1 === 0).map(s => s.value + " - " + JSON.stringify(s.level).slice(10,-2))
                             ]
                           }
                         ], margin: [5, 1, 0, 0],
@@ -317,163 +318,6 @@ export class GenerateComponent implements OnInit {
     }
   }
 
-  getDocumentDefinition() {
-    sessionStorage.setItem('resume', JSON.stringify(this.resume));
-    return {
-      content: [
-        {
-          text: this.resume.name,
-          bold: true,
-          fontSize: 20,
-          alignment: 'center',
-          margin: [0, 0, 0, 20],
-        },
-        {
-          text: this.resume.position,
-          bold: true,
-          fontSize: 15,
-          alignment: 'center',
-          margin: [0, 0, 0, 20],
-        },
-        {
-          text: this.resume.address
-        },
-        {
-          columns: [
-            [{
-              text: 'Contact',
-              style: 'name'
-            },
-
-              {
-                text: 'Email :' + this.resume.email,
-              },
-              {
-                text: 'Contant No : ' + this.resume.contactNo,
-              },
-              {
-                text: 'GitHub: ' + this.resume.socialProfile,
-                link: this.resume.socialProfile,
-                color: 'blue',
-              }
-            ],
-            [
-              this.getProfilePicObject()
-            ]
-          ]
-        },
-        {
-          text: 'Soft Skills',
-          style: 'header'
-        },
-        {
-          columns: [
-            {
-              ul: [
-                ...this.resume.skillsS.filter((value, index) => index % 3 === 0).map(s => s.value)
-              ]
-            },
-            {
-              ul: [
-                ...this.resume.skillsS.filter((value, index) => index % 3 === 1).map(s => s.value)
-              ]
-            },
-            {
-              ul: [
-                ...this.resume.skillsS.filter((value, index) => index % 3 === 2).map(s => s.value)
-              ]
-            }
-          ]
-        },
-
-        {
-          text: 'Hard Skills',
-          style: 'header'
-        },
-        {
-          columns: [
-            {
-              ul: [
-                ...this.resume.skillsH.filter((value, index) => index % 3 === 0).map(s => s.value)
-              ]
-            },
-            {
-              ul: [
-                ...this.resume.skillsH.filter((value, index) => index % 3 === 1).map(s => s.value)
-              ]
-            },
-            {
-              ul: [
-                ...this.resume.skillsH.filter((value, index) => index % 3 === 2).map(s => s.value)
-              ]
-            }
-          ]
-        },
-        {
-          text: 'Experience',
-          style: 'header'
-        },
-        this.getExperienceObject(this.resume.experiences),
-
-        {
-          text: 'Education',
-          style: 'header'
-        },
-        this.getEducationObject(this.resume.educations),
-        {
-          text: 'Other Details',
-          style: 'header'
-        },
-        {
-          text: this.resume.otherDetails
-        },
-        {
-          text: 'Signature',
-          style: 'sign'
-        },
-        {
-          columns: [
-            {qr: this.resume.name + ', Contact No : ' + this.resume.contactNo, fit: 100},
-            {
-              text: `(${this.resume.name})`,
-              alignment: 'right',
-            }
-          ]
-        }
-      ],
-      info: {
-        title: this.resume.name + '_RESUME',
-        author: this.resume.name,
-        subject: 'RESUME',
-        keywords: 'RESUME, ONLINE RESUME',
-      },
-      styles: {
-        header: {
-          fontSize: 18,
-          bold: true,
-          margin: [0, 20, 0, 10],
-          decoration: 'underline'
-        },
-        name: {
-          fontSize: 16,
-          bold: true
-        },
-        jobTitle: {
-          fontSize: 14,
-          bold: true,
-          italics: true
-        },
-        sign: {
-          margin: [0, 50, 0, 10],
-          alignment: 'right',
-          italics: true
-        },
-        tableHeader: {
-          bold: true,
-        }
-      }
-    };
-  }
 
   getExperienceObject(experiences: Experience[]) {
 
@@ -531,7 +375,7 @@ export class GenerateComponent implements OnInit {
               bold: true
             },
               {
-                text: ed.degree,
+                text: JSON.stringify(ed.degree).slice(10,-2),
                 italics: true
               },
               {
@@ -568,7 +412,7 @@ export class GenerateComponent implements OnInit {
           border: [false, false, false, false],
           columns: [
             [{
-              text: d.type,
+              text: JSON.stringify(d.type).slice(10,-2),
               bold: true,
               fontSize: 16,
               margin: [5, 2, 0, 0]

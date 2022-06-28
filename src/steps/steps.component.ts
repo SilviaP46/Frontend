@@ -1,7 +1,6 @@
 import {MenuItem, MessageService} from "primeng/api";
 import {Subscription} from "rxjs";
 import {Component, OnInit, ViewEncapsulation} from "@angular/core";
-import {TicketService} from "./ticketservice";
 import {SharingService} from "./sharing-service";
 
 @Component({
@@ -19,7 +18,7 @@ export class StepsComponent implements OnInit {
 
   readOnly:boolean
 
-  constructor(public messageService: MessageService, public ticketService: TicketService,public sharingService:SharingService) {}
+  constructor(public messageService: MessageService,public sharingService:SharingService) {}
 
   ngOnInit() {
 
@@ -56,9 +55,6 @@ export class StepsComponent implements OnInit {
       }
     ];
 
-    this.subscription = this.ticketService.paymentComplete$.subscribe((personalInformation: { firstname: string; lastname: string; }) =>{
-      this.messageService.add({severity:'success', summary:'Order submitted', detail: 'Dear, ' + personalInformation.firstname + ' ' + personalInformation.lastname + ' your order completed.'});
-    });
   }
 
   ngOnDestroy() {

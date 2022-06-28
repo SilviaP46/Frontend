@@ -3,7 +3,6 @@ import {StepsComponent} from "./steps.component";
 import {ToastModule} from "primeng/toast";
 import {RouterModule} from "@angular/router";
 import { StepsModule } from 'primeng/steps';
-import {TicketService} from "./ticketservice";
 import {StepsRoutingModule} from "./steps-routing.module";
 import {PersonalComponent} from "./personal/personal.component";
 import {CardModule} from "primeng/card";
@@ -28,6 +27,7 @@ import {EditorModule} from "primeng/editor";
 import {ConfirmDialogModule} from "primeng/confirmdialog";
 import {ConfirmationService} from "primeng/api";
 import {RadioButtonModule} from "primeng/radiobutton";
+import {RippleModule} from "primeng/ripple";
 
 
 @NgModule({
@@ -41,28 +41,29 @@ import {RadioButtonModule} from "primeng/radiobutton";
     GenerateComponent,
     LanguagesComponent
   ],
-  imports: [
+    imports: [
 
-    ToastModule,
-    RouterModule,
-    StepsModule,
-    StepsRoutingModule,
-    CardModule,
-    ButtonModule,
-    FormsModule,
-    CommonModule,
-    InputTextModule,
-    InputTextareaModule,
-    CalendarModule,
-    CheckboxModule,
-    TreeSelectModule,
-    ImageModule,
-    DropdownModule,
-    EditorModule,
-    ConfirmDialogModule,
-    RadioButtonModule
-  ],
-  providers:[TicketService,SharingService,DatePipe,ConfirmationService],
+        ToastModule,
+        RouterModule,
+        StepsModule,
+        StepsRoutingModule,
+        CardModule,
+        ButtonModule,
+        FormsModule,
+        CommonModule,
+        InputTextModule,
+        InputTextareaModule,
+        CalendarModule,
+        CheckboxModule,
+        TreeSelectModule,
+        ImageModule,
+        DropdownModule,
+        EditorModule,
+        ConfirmDialogModule,
+        RadioButtonModule,
+        RippleModule
+    ],
+  providers:[SharingService,DatePipe,ConfirmationService],
   exports:[
     StepsComponent,
     PersonalComponent,

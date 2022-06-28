@@ -23,7 +23,6 @@ import {HttpErrorInterceptor} from "../error/http-error.interceptor";
 import {MessageModule} from "primeng/message";
 import {MessagesModule} from "primeng/messages";
 import {ErrorModule} from "../error/error.module";
-import {TicketService} from "../steps/ticketservice";
 import {InputTextModule} from "primeng/inputtext";
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {SharingService} from "../steps/sharing-service";
@@ -40,6 +39,7 @@ import {StepsDemoModule} from "../steps/steps.module";
 
   ],
     imports: [
+        //StepsDemoModule,
         BrowserModule,
         AppRoutingModule,
         OverlayPanelModule,
@@ -72,7 +72,7 @@ import {StepsDemoModule} from "../steps/steps.module";
     useClass: HttpErrorInterceptor,
     multi: true
   },
-    BadgeModule,TicketService,SharingService,DatePipe
+    BadgeModule,SharingService,DatePipe
   ],
   bootstrap: [AppComponent]
 })

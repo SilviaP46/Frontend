@@ -43,18 +43,10 @@ export class RegisterComponent implements OnInit {
       this.registerService.register(this.userForm.controls['firstName'].value,this.userForm.controls['lastName'].value,this.userForm.controls['username'].value, this.userForm.controls['password'].value, this.userForm.controls['email'].value).subscribe((user)=>{
         this.user=user;
 
-        sessionStorage.setItem('firstName', user.firstName);
-        sessionStorage.setItem('lastName', user.lastName);
-        sessionStorage.setItem('username', user.username);
-        sessionStorage.setItem('email', user.email);
-        sessionStorage.setItem('password', user.password);
-        sessionStorage.setItem('token', user.token);
-        console.log('aici');
-
       });
     }
     this.messageService.add({severity:'success', summary: 'Successful Registration', detail: 'Please log in now!'});
-    //this.router.navigate(['login']);
+    this.router.navigate(['login']);
 
   }
 

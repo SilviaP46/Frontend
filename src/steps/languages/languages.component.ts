@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Certifications, Languages, Resume} from "../resume";
 import {Router} from "@angular/router";
 import {SelectItem} from "primeng/api";
@@ -13,8 +13,8 @@ export class LanguagesComponent implements OnInit {
   submitted: boolean = false;
   resume = new Resume();
   items: SelectItem[];
-  item: string;
-  levels:any[];
+  item: string = "";
+  levels: any[] = [];
 
   constructor(private router: Router) {
     this.items = [];
@@ -24,7 +24,7 @@ export class LanguagesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.resume=JSON.parse(sessionStorage.getItem('resume') || '{}');
+    this.resume = JSON.parse(sessionStorage.getItem('resume') || '{}');
     this.levels = [
       {label: 'Basic User (A1)'},
       {label: 'Basic User (A2)'},
@@ -33,13 +33,12 @@ export class LanguagesComponent implements OnInit {
       {label: 'Proficient User (C1)'},
       {label: 'Proficient User (C2)'}
     ];
-
-    
   }
 
   addLanguage() {
     this.resume.languages.push(new Languages());
   }
+
   addCertification() {
     this.resume.certifications.push(new Certifications());
   }
@@ -47,7 +46,7 @@ export class LanguagesComponent implements OnInit {
   nextPage() {
     this.router.navigate(['/steps/experience']);
     this.submitted = true;
-    sessionStorage.setItem('resume',JSON.stringify(this.resume));
+    sessionStorage.setItem('resume', JSON.stringify(this.resume));
 
     return;
   }
@@ -55,7 +54,7 @@ export class LanguagesComponent implements OnInit {
   previousPage() {
     this.router.navigate(['/steps/skills']);
     this.submitted = true;
-    sessionStorage.setItem('resume',JSON.stringify(this.resume));
+    sessionStorage.setItem('resume', JSON.stringify(this.resume));
 
   }
 

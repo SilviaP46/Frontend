@@ -22,6 +22,7 @@ export class Resume {
     this.skillsS.push(new SoftSkill());
     this.skillsH.push(new HardSkill());
     this.otherDetails.push(new Details());
+    this.languages.push(new Languages());
   }
 }
 

@@ -13,14 +13,10 @@
           <div class="row" *ngFor="let ed of resume.educations; let i=index">
             <h4>
               <i class="pi pi-chevron-right"></i>
-              Job</h4>
+              Education</h4>
             <div class="col-md-3">
               <div class="form-group spacing">
-                <select class="form-control" placeholder="Degree" name="degree{{i}}" [(ngModel)]="ed.degree"
-                        #Degree="ngModel" required
-                        [ngClass]="{'is-invalid': Degree.invalid && (Degree.touched || resumeForm.submitted) }">
-                  <option [value]="d" *ngFor="let d of degrees">{{d}}</option>
-                </select>
+                <p-dropdown [options]="degrees" [(ngModel)]="ed.degree" name="degree{{i}}" placeholder="Select a degree" optionLabel="label" [showClear]="true" class="lvl"></p-dropdown>
               </div>
             </div>
             <div class="col-md-3">
@@ -61,33 +57,13 @@
                           name="endDate{{i}}" placeholder="End Date" #endDate="ngModel"></p-calendar>
               <p-checkbox [(ngModel)]="ed.current" [binary]="true" name="currentDate{{i}}" id="binary"
                           class="spacing-left centerCheckBox"></p-checkbox>
-              <label for="binary" class="form-control checkBoxText">I'm still working here!</label>
+              <label for="binary" class="form-control checkBoxText">I'm still studying here!</label>
             </div>
 
 
           </div>
         </div>
       </div>
-
-      <!-- Other Details -->
-
-      <!--<div class="shadow-sm card">
-        <div class="card-body">
-          <h4 class="card-title d-flex align-items-center">
-            <i class="spacing-all pi pi-list"></i>Other Details</h4>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <textarea type="text" rows="5" cols="50" class="form-control" [(ngModel)]="resume.otherDetails" name="otherDetails" pInputTextarea
-                          [autoResize]=true></textarea>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>
-    </form>-->
 
       <div>
         <div class="spacing-bottom">
@@ -100,11 +76,7 @@
             <i class="pi pi-chevron-right"></i>
           </h4>
           <div class="form-group spacing">
-            <select class="spacing" name="type{{i}}" [(ngModel)]="v.type"
-                    #Type="ngModel" required
-                    [ngClass]="{'is-invalid': Type.invalid && (Type.touched || resumeForm.submitted) }">
-              <option [value]="d" *ngFor="let d of types">{{d}}</option>
-            </select>
+            <p-dropdown [options]="types" [(ngModel)]="v.type" name="type{{i}}" placeholder="Select a degree" optionLabel="label" [showClear]="true" class="lvl"></p-dropdown>
           </div>
           <div>
             <div class="spacing">

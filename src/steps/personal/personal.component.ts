@@ -1,6 +1,5 @@
-import {Component, Input, OnInit, ViewEncapsulation} from "@angular/core";
+import {Component, OnInit, ViewEncapsulation} from "@angular/core";
 import {Router} from "@angular/router";
-import {TicketService} from "../ticketservice";
 import {Education, Experience, Resume, SoftSkill, HardSkill} from "../resume";
 import {ScriptService} from "../../export/services/script.service";
 import {SharingService} from "../sharing-service";
@@ -21,11 +20,11 @@ export class PersonalComponent implements OnInit {
   degrees = ['B.E.', 'M.E.', 'B.Com', 'M.Com'];
 
 
-  constructor(public ticketService: TicketService, private router: Router,private scriptService: ScriptService,private sharingService:SharingService) { }
+  constructor(private router: Router,private scriptService: ScriptService) { }
 
   ngOnInit():void {
 
-    console.log(sessionStorage.getItem('resume'));
+
     const resumeJson=sessionStorage.getItem('resume');
     this.resume = resumeJson !== null ? JSON.parse(resumeJson) : new Resume();
 
@@ -50,12 +49,14 @@ export class PersonalComponent implements OnInit {
 
     console.log('Loading External Scripts');
     this.scriptService.load('pdfMake', 'vfsFonts');
+    console.log(this.resume.profilePic);
   }
 
   fileChanged(e: Event) {
     // @ts-ignore
     const file = e.target.files[0];
     this.getBase64(file);
+    console.log(this.resume.profilePic);
   }
 
   // @ts-ignore
@@ -71,6 +72,9 @@ export class PersonalComponent implements OnInit {
     };
   }
 
+  deletePic(){
+    this.resume.profilePic="";
+  }
 
   nextPage() {
     this.router.navigate(['/steps/skills']);
@@ -81,7 +85,6 @@ export class PersonalComponent implements OnInit {
 
   previousPage() {
     this.router.navigate(['/steps/introduction']);
-    //this.sharingService.setData(this.resume);
     sessionStorage.setItem('resume', JSON.stringify(this.resume));
     this.submitted = true;
   }
