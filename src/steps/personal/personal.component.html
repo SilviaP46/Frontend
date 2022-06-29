@@ -74,18 +74,15 @@
           <div style="position: relative; height: 200px; width: 160px; padding-left:60px;" class="float-child-element">
 
             <img *ngIf="resume.profilePic" [src]="resume.profilePic"
-                 style='position: absolute;  width: 150px; height: 200px; object-fit: cover; border:3px solid #73AD21;'
+                 style='position: absolute;  width: 150px; height: 200px; object-fit: cover; border:3px solid black;'
                  alt='image'/>
             <p-button *ngIf="resume.profilePic" pButton pRipple type="button" icon="pi pi-times"
                       class="p-button-rounded p-button-outlined" (onClick)="deletePic()"></p-button>
           </div>
-
-      </div>
+        </div>
       </div>
       <br>
-
     </form>
-
 
     <ng-template pTemplate="footer">
       <div class="grid grid-nogutter justify-content-end">

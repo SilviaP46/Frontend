@@ -6,7 +6,7 @@ import {SharingService} from "../sharing-service";
 @Component({
   selector: 'app-introduction',
   templateUrl: './introduction.component.html',
-  styleUrls: [],
+  styleUrls: ['introduction.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class IntroductionComponent implements OnInit {

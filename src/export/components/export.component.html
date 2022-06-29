@@ -1,22 +1,38 @@
-<h3 class="row">Enter keywords about your desired position and city</h3>
+
+<div class="center"><h3 class="row">Enter keywords about your desired position.</h3>
 <span class="p-input-icon-right row">
-    <input type="text" pInputText [(ngModel)]="keywords" />
+   <div class="card align"><input type="text" pInputText [(ngModel)]="keywords"/></div>
   <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded" (click)="findJobs()"></button>
 </span>
+</div>
 
-
-<p-table class="table" [value]="jobs" selectionMode="single" [(selection)]="selectedJob" dataKey="code" responsiveLayout="scroll"
+<p-table class="table" [value]="jobs" selectionMode="single" [(selection)]="selectedJob" dataKey="code"
+         responsiveLayout="scroll" [rows]="5" [paginator]="true"
          (onRowSelect)="onRowSelect($event)">
   <ng-template pTemplate="header">
     <tr>
-      <th>Position</th>
-      <th>City</th>
-      <th>Type</th>
-      <th>Career Level</th>
-      <th>Studies</th>
-      <th>Department</th>
+      <th pSortableColumn="position">Position
+        <p-sortIcon field="position"></p-sortIcon>
+      </th>
+      <th pSortableColumn="city">City
+        <p-sortIcon field="city"></p-sortIcon>
+      </th>
+      <th pSortableColumn="type">Type
+        <p-sortIcon field="type"></p-sortIcon>
+      </th>
+      <th pSortableColumn="career">Career Level
+        <p-sortIcon field="career"></p-sortIcon>
+      </th>
+      <th pSortableColumn="studies">Studies
+        <p-sortIcon field="studies"></p-sortIcon>
+      </th>
+      <th pSortableColumn="department">Department
+        <p-sortIcon field="department"></p-sortIcon>
+      </th>
       <th>Salary</th>
-      <th>Industry</th>
+      <!--<th pSortableColumn="industry">Industry
+        <p-sortIcon field="industry"></p-sortIcon>
+      </th>-->
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-job>
@@ -28,12 +44,13 @@
       <td>{{job.studies}}</td>
       <td>{{job.department}}</td>
       <td>{{job.salary}}</td>
-      <td>{{job.industry}}</td>
+     <!-- <td>{{job.industry}}</td>-->
     </tr>
   </ng-template>
 </p-table>
 
-<p-dialog header="Just a few seconds away.." [(visible)]="displayPosition" [position]="position" [modal]="true" [style]="{width: '50vw'}"
+<p-dialog header="Just a few seconds away.." [(visible)]="displayPosition" [position]="position" [modal]="true"
+          [style]="{width: '50vw'}"
           [draggable]="false" [resizable]="false">
   <p>We're looking for the ideal job for you right now!
     If the table does not appear after 60 seconds, refresh the page.</p>

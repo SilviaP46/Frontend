@@ -1,12 +1,16 @@
 <div class="stepsdemo-content centerForm">
   <p-card class="personalBar">
-    <h2>Follow the steps and fill out all the required fields to generate your resume!</h2>
-
-
+    <h2 class="intro">Follow the steps and fill out all the required fields to generate your resume!</h2>
+    <p-image src="assets/images/introPicture.png" alt="Image" width=100%; class="center"></p-image>
+    <ng-template pTemplate="footer">
       <div class="grid grid-nogutter justify-content-end">
-        <p-button label="Next" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right" class="floatRight"></p-button>
+        <p-button label="Start" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right"
+                  class="floatRight"></p-button>
       </div>
 
+      <br>
+      <br>
+    </ng-template>
   </p-card>
 </div>
 

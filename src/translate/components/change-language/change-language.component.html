@@ -2,7 +2,7 @@
 
 <p-button icon="pi pi-globe" (click)="op.toggle($event)"></p-button>
 
-<p-overlayPanel #op [showCloseIcon]="true" [style]="{width: '450px'}">
+<p-overlayPanel #op [showCloseIcon]="true" [style]="{width: '450px', height:'200px'}">
   <ng-template pTemplate>
     <p-table [value]="languageList" selectionMode="single"  (onRowSelect)="onRowSelect($event)" scrollHeight="300px" [responsive]="true">
       <ng-template pTemplate="header">

@@ -8,16 +8,19 @@
               <i class="material-icons">
                 school</i>
               Education</h2>
-            <p-button class="btn btn-primary" icon="pi pi-plus" (click)="addEducation()"></p-button>
+            <p-button class="plus-button" icon="pi pi-plus" (click)="addEducation()"></p-button>
           </div>
-          <div class="row" *ngFor="let ed of resume.educations; let i=index">
+          <br>
+          <div class="row item center" *ngFor="let ed of resume.educations; let i=index">
+            <p-button class="btn btn-primary minusButton" icon="pi pi-times" (click)="removeEducation(i)"></p-button>
             <h4>
               <i class="pi pi-chevron-right"></i>
               Degree</h4>
-            <p-button class="btn btn-primary" icon="pi pi-minus" (click)="removeEducation(i)"></p-button>
+
             <div class="col-md-3">
               <div class="form-group spacing">
-                <p-dropdown [options]="degrees" [(ngModel)]="ed.degree" name="degree{{i}}" placeholder="Select a degree" optionLabel="label" [showClear]="true" class="lvl"></p-dropdown>
+                <p-dropdown [options]="degrees" [(ngModel)]="ed.degree" name="degree{{i}}" placeholder="Select a degree"
+                            optionLabel="label" [showClear]="true" class="lvl"></p-dropdown>
               </div>
             </div>
             <div class="col-md-3">
@@ -74,13 +77,15 @@
           <p-button class="spacing-bottom" icon="pi pi-plus" (click)="addDetails()"></p-button>
         </div>
 
-        <div class="spacing-bottom" *ngFor="let v of resume.otherDetails; let i=index">
+        <div class="spacing-bottom item center" *ngFor="let v of resume.otherDetails; let i=index">
+          <p-button class="btn btn-primary minusButton" icon="pi pi-times" (click)="removeDetails(i)"></p-button>
           <h2>
             <i class="pi pi-chevron-right"></i> Details
           </h2>
-          <p-button class="btn btn-primary" icon="pi pi-minus" (click)="removeDetails(i)"></p-button>
+
           <div class="form-group spacing">
-            <p-dropdown [options]="types" [(ngModel)]="v.type" name="type{{i}}" placeholder="Select a degree" optionLabel="label" [showClear]="true" class="lvl"></p-dropdown>
+            <p-dropdown [options]="types" [(ngModel)]="v.type" name="type{{i}}" placeholder="Select a degree"
+                        optionLabel="label" [showClear]="true" class="lvl"></p-dropdown>
           </div>
           <div>
             <div class="spacing">

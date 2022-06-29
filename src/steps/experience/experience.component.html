@@ -1,7 +1,7 @@
 <div class="stepsdemo-content centerForm">
   <p-card class="personalBar">
     <form #resumeForm="ngForm">
-      <div class="shadow-sm card">
+      <div class="shadow-sm">
         <div class="card-body">
           <div class="d-flex justify-content-between card-title">
             <h2 class="d-flex align-items-center">
@@ -12,12 +12,12 @@
             <p-button class="btn btn-primary" icon="pi pi-plus" (click)="addExperience()"></p-button>
           </div>
           <br>
-          <div class="row" *ngFor="let ex of resume.experiences; let i=index">
-
+          <div class="item center" *ngFor="let ex of resume.experiences; let i=index">
+            <p-button class="btn btn-primary minusButton" icon="pi pi-times" (click)="removeExperience(i)"></p-button>
             <h4>
               <i class="pi pi-chevron-right"></i>
               Job</h4>
-            <p-button class="btn btn-primary" icon="pi pi-minus" (click)="removeExperience(i)"></p-button>
+
 
             <div class="col-md-6">
               <div class="form-group spacing">
@@ -57,6 +57,7 @@
               <br>
             </div>
           </div>
+
         </div>
       </div>
     </form>

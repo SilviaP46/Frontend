@@ -1,14 +1,17 @@
 .stepsBar{
+  position: -webkit-sticky;
+  position: sticky;
   padding: 50px;
   border-radius: 25px;
   border: 2px solid purple;
-  width: 900px;
+  width: 1000px;
   height: 150px;
   background-color:white;
 }
 
 .centerStepsBar{
   padding: 50px;
+  padding-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
