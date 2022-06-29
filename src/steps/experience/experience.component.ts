@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Experience, Resume} from "../resume";
+import {Experience, Resume, SoftSkill} from "../resume";
 import {Router} from "@angular/router";
 import {DatePipe} from "@angular/common";
 declare let pdfMake: any ;
@@ -18,11 +18,14 @@ export class ExperienceComponent implements OnInit {
 
   ngOnInit(): void {
     this.resume=JSON.parse(sessionStorage.getItem('resume') || '{}');
-
   }
 
   addExperience() {
     this.resume.experiences.push(new Experience());
+  }
+
+  removeExperience(index:number){
+    this.resume.experiences.splice(index,1);
   }
 
   nextPage() {
@@ -38,5 +41,7 @@ export class ExperienceComponent implements OnInit {
     sessionStorage.setItem('resume', JSON.stringify(this.resume));
     this.submitted = true;
   }
+
+
 
 }

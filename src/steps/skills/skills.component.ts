@@ -28,6 +28,13 @@ export class SkillsComponent implements OnInit {
     this.resume.skillsH.push(new HardSkill());
   }
 
+  removeSoftSkills(index:number){
+    this.resume.skillsS.splice(index,1);
+  }
+  removeHardSkills(index:number){
+    this.resume.skillsH.splice(index,1);
+  }
+
   nextPage() {
     this.router.navigate(['/steps/languages']);
     this.submitted = true;

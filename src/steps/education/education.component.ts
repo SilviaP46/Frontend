@@ -61,4 +61,12 @@ export class EducationComponent implements OnInit {
     this.resume.otherDetails.push(new Details());
   }
 
+  removeEducation(index:number){
+    this.resume.educations.splice(index,1);
+  }
+
+  removeDetails(index:number){
+    this.resume.otherDetails.splice(index,1);
+  }
+
 }

@@ -12,7 +12,7 @@
                   timeline
                 </i>
                 Languages</h2>
-              <p-button class="btn btn-primary" icon="pi pi-plus-circle" (click)="addLanguage()"></p-button>
+              <p-button class="btn btn-primary" icon="pi pi-plus" (click)="addLanguage()"></p-button>
 
               <div class="row">
                 <div class="col-md-4" *ngFor="let s of resume.languages; let i=index">
@@ -21,6 +21,7 @@
                     <input type="text" pInputText class="form-control" name="language{{i}}" [(ngModel)]="s.value"
                            placeholder="e.g. English/German " #Language="ngModel" required
                            [ngClass]="{'is-invalid': Language.invalid && (Language.touched) }">
+                    <p-button class="btn btn-primary spacing-remove" icon="pi pi-minus" (click)="removeLanguage(i)"></p-button>
                   </div>
                 </div>
               </div>
@@ -34,7 +35,7 @@
                   timeline
                 </i>
                 Certifications</h2>
-              <p-button class="btn btn-primary" icon="pi pi-plus-circle" (click)="addCertification()"></p-button>
+              <p-button class="btn btn-primary" icon="pi pi-plus" (click)="addCertification()"></p-button>
 
               <br>
               <div class="row">
@@ -43,6 +44,7 @@
                     <input type="text" pInputText class="form-control" name="certification{{i}}" [(ngModel)]="s.value"
                            placeholder="e.g. Cambridge/Toefl " #Certification="ngModel" required
                            [ngClass]="{'is-invalid': Certification.invalid && (Certification.touched) }">
+                    <p-button class="btn btn-primary spacing-remove" icon="pi pi-minus" (click)="removeCertification(i)"></p-button>
                   </div>
                 </div>
               </div>

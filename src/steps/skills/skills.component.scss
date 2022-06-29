@@ -1,14 +1,9 @@
 .elementSkills {
   display: flex;
   padding:50px;
-
 }
 
 .float-parent-element {
-  width: 50%;
-}
-.float-child-element {
-  float: left;
   width: 50%;
 }
 .centerSkills{
@@ -18,6 +13,10 @@
   align-content: center;
 }
 
-.fixPosition{
-  position: fixed;
+.align-child{
+  float:left;
+}
+
+.align-parent{
+  overflow: hidden;
 }

@@ -1,66 +1,75 @@
 <div class="stepsdemo-content centerForm">
   <p-card class="personalBar">
+    <form #resumeForm="ngForm">
 
-    <div class="shadow-sm card">
-      <div class="card-body">
-        <div class="d-flex justify-content-between card-title">
+      <div class="shadow-sm card">
+        <div class="card-body">
+          <div class="align-parent">
 
-          <div class="float-child-element centerSkills">
-            <div>
-              <h2 class="d-flex align-items-center">
-                <i class="material-icons">
-                  timeline
-                </i>
-                Soft Skills</h2>
-              <p-button class="btn btn-primary" icon="pi pi-plus-circle" (click)="addSoftSkill()"></p-button>
+            <div class="align-child  centerSkills">
+              <div>
+                <h2 class="d-flex align-items-center">
+                  <i class="material-icons">
+                    timeline
+                  </i>
+                  Soft Skills</h2>
+                <p-button class="btn btn-primary" icon="pi pi-plus" (click)="addSoftSkill()"></p-button>
 
-              <div class="row">
-                <div class="col-md-4" *ngFor="let s of resume.skillsS; let i=index">
-                  <div class="form-group spacing">
-                    <input type="text" pInputText class="form-control" name="skill{{i}}" [(ngModel)]="s.value"
-                           placeholder="e.g. Team work/ Communication " #Skill="ngModel" required
-                           [ngClass]="{'is-invalid': Skill.invalid && (Skill.touched) }">
+                <div class="row">
+                  <div class="col-md-4" *ngFor="let s of resume.skillsS; let i=index">
+                    <div class="form-group spacing">
+                      <input type="text" pInputText class="form-control" name="skill{{i}}" [(ngModel)]="s.value"
+                             placeholder="e.g. Team work/ Communication " #Skill="ngModel" required
+                             [ngClass]="{'is-invalid': Skill.invalid && (Skill.touched) }">
+                      <p-button class="btn btn-primary spacing-remove" icon="pi pi-minus" (click)="removeSoftSkills(i)"></p-button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="float-child-element centerSkills">
-            <div>
-              <h2 class="d-flex align-items-center">
-                <i class="material-icons">
-                  timeline
-                </i>
-                Hard Skills</h2>
-              <p-button class="btn btn-primary" icon="pi pi-plus-circle" (click)="addHardSkill()"></p-button>
+            <div class="align-child  centerSkills">
+              <div>
+                <h2 class="d-flex align-items-center">
+                  <i class="material-icons">
+                    timeline
+                  </i>
+                  Hard Skills</h2>
+                <p-button class="btn btn-primary" icon="pi pi-plus" (click)="addHardSkill()"></p-button>
 
-              <br>
-              <div class="row">
-                <div class="col-md-4" *ngFor="let s of resume.skillsH; let i=index">
-                  <div class="form-group spacing">
-                    <input type="text" pInputText class="form-control" name="skill{{i}}" [(ngModel)]="s.value"
-                           placeholder="e.g. Java / Angular / .Net " #Skill="ngModel" required
-                           [ngClass]="{'is-invalid': Skill.invalid && (Skill.touched) }">
+                <br>
+                <div class="row">
+                  <div class="col-md-4" *ngFor="let s of resume.skillsH; let i=index">
+                    <div class="form-group spacing">
+                      <input type="text" pInputText class="form-control" name="skill{{i}}" [(ngModel)]="s.value"
+                             placeholder="e.g. Java / Angular / .Net " #Skill="ngModel" required
+                             [ngClass]="{'is-invalid': Skill.invalid && (Skill.touched) }">
+                      <p-button class="btn btn-primary spacing-remove" icon="pi pi-minus" (click)="removeHardSkills(i)"></p-button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+
+
           </div>
-
-
         </div>
       </div>
-    </div>
+    </form>
 
 
     <ng-template pTemplate="footer">
       <br>
       <div class="grid grid-nogutter justify-content-end">
-        <p-button label="Back" (onClick)="previousPage()" icon="pi pi-angle-left" iconPos="left"></p-button>
-        <p-button label="Next" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right" class="floatRight"></p-button>
+        <p-button label="Back" (onClick)="previousPage()" icon="pi pi-angle-left" iconPos="left"
+                  class="fixed"></p-button>
+        <p-button label="Next" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right"
+                  class="floatRight"></p-button>
       </div>
     </ng-template>
   </p-card>
 </div>
+
+
+
 

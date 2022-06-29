@@ -9,7 +9,7 @@
                 timeline
               </i>
               Experience</h2>
-            <p-button class="btn btn-primary" icon="pi pi-plus-circle" (click)="addExperience()"></p-button>
+            <p-button class="btn btn-primary" icon="pi pi-plus" (click)="addExperience()"></p-button>
           </div>
           <br>
           <div class="row" *ngFor="let ex of resume.experiences; let i=index">
@@ -17,6 +17,7 @@
             <h4>
               <i class="pi pi-chevron-right"></i>
               Job</h4>
+            <p-button class="btn btn-primary" icon="pi pi-minus" (click)="removeExperience(i)"></p-button>
 
             <div class="col-md-6">
               <div class="form-group spacing">
@@ -38,25 +39,24 @@
               </div>
 
               <div class="field col-12 md:col-4 spacing">
-                <p-calendar [(ngModel)]="ex.startDate" [showIcon]="true" view="month" dateFormat="yy/mm" id="icon" class="form-control"
+                <p-calendar [(ngModel)]="ex.startDate" [showIcon]="true" view="month" dateFormat="yy/mm" id="icon"
+                            class="form-control"
                             name="startDate{{i}}" placeholder="Start Date" #startDate="ngModel"> <!--required
                             [ngClass]="{'is-invalid': startDate.invalid && (startDate.touched || resumeForm.submitted) }"-->
                 </p-calendar>
               </div>
 
               <div class="field col-12 md:col-4 spacing">
-                <p-calendar [(ngModel)]="ex.endDate" [showIcon]="true" view="month" dateFormat="yy/mm" id="icon2" class="form-control"
+                <p-calendar [(ngModel)]="ex.endDate" [showIcon]="true" view="month" dateFormat="yy/mm" id="icon2"
+                            class="form-control"
                             name="endDate{{i}}" placeholder="End Date" #endDate="ngModel"></p-calendar>
                 <p-checkbox [(ngModel)]="ex.current" [binary]="true" name="currentDate{{i}}" id="binary"
                             class="spacing-left centerCheckBox"></p-checkbox>
                 <label for="binary" class="form-control checkBoxText">I'm still working here!</label>
               </div>
               <br>
-
             </div>
-
           </div>
-
         </div>
       </div>
     </form>

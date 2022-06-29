@@ -39,9 +39,15 @@ export class LanguagesComponent implements OnInit {
     this.resume.languages.push(new Languages());
   }
 
+  removeLanguage(index:number) {
+    this.resume.languages.splice(index,1);
+  }
   addCertification() {
     this.resume.certifications.push(new Certifications());
   }
+  removeCertification(index:number){
+  this.resume.certifications.splice(index,1);
+}
 
   nextPage() {
     this.router.navigate(['/steps/experience']);

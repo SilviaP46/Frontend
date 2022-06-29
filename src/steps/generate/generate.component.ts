@@ -257,7 +257,6 @@ export class GenerateComponent implements OnInit {
                           {
                             qr: this.resume.name + ', Contact No : ' + this.resume.contactNo,
                             fit: 100,
-                            /*alignment: 'center',*/
                             margin: [5, 2, 0, 1],
                           },
 
